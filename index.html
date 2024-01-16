@@ -9,7 +9,12 @@
     <link rel="stylesheet" href="./css/vendor/spectre.min.css">
     <link rel="stylesheet" href="./css/vendor/spectre-exp.min.css">
     <link rel="stylesheet" href="./css/vendor/spectre-icons.min.css">
-    <style>      
+    <style>
+      @font-face {
+	  font-family: 'RubikBurned-Regular';
+	  src: URL('fonts/RubikBurned-Regular.ttf') format('truetype');
+      }
+      
       #LOGO{
 	  width: 110px;
       }
@@ -23,8 +28,9 @@
 	  height: 60vh;
 	  padding: 3em;
 	  color: #FFFFFF;
+	  font-family: 'RubikBurned-Regular';
       }
-
+      
       #HERO button{
 	  float: right;
 	  color: #9b7e57;
@@ -38,6 +44,7 @@
       <section class="navbar-section">
 	<a href="#" class="btn btn-link">About</a>
 	<a href="#" class="btn btn-link">Destination</a>
+	<a href="#" class="btn btn-link">Testimonials</a>
       </section>
       <section class="navbar-center">
 	<img src="img/logo.jpg" id="LOGO">
