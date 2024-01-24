@@ -1,67 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>First Light Safaris</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="./css/vendor/spectre.min.css">
-    <link rel="stylesheet" href="./css/vendor/spectre-exp.min.css">
-    <link rel="stylesheet" href="./css/vendor/spectre-icons.min.css">
-    <style>
-      @font-face {
-	  font-family: 'RubikBurned-Regular';
-	  src: URL('fonts/RubikBurned-Regular.ttf') format('truetype');
-      }
-      
-      #LOGO{
-	  width: 110px;
-      }
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>First Light Safaris</title>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+	      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+	      crossorigin=""/>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="./css/vendor/spectre.min.css">
+	<link rel="stylesheet" href="./css/vendor/spectre-exp.min.css">
+	<link rel="stylesheet" href="./css/vendor/spectre-icons.min.css">
+	<style>
+	 @font-face {
+	     font-family: 'RubikBurned-Regular';
+	     src: URL('fonts/RubikBurned-Regular.ttf') format('truetype');
+	 }
 
-      .btn.btn-link{
-	  color: #9b7e57;
-      }
+	 #LOGO{
+	     width: 110px;
+	 }
 
-      #HERO{
-	  background-color: #9b7e57;
-	  height: 60vh;
-	  padding: 3em;
-	  color: #FFFFFF;
-	  font-family: 'RubikBurned-Regular';
-      }
-      
-      #HERO button{
-	  float: right;
-	  color: #9b7e57;
-	  border: none;
-      }
-      
-    </style>
-  </head>
-  <body>
-    <header class="navbar">
-      <section class="navbar-section">
-	<a href="#" class="btn btn-link">About</a>
-	<a href="#" class="btn btn-link">Destination</a>
-	<a href="#" class="btn btn-link">Testimonials</a>
-      </section>
-      <section class="navbar-center">
-	<img src="img/logo.jpg" id="LOGO">
-      </section>
-      <section class="navbar-section">
-	<a href="#" class="btn btn-link">Bookings</a>
-	<a href="#" class="btn btn-link">Contact</a>
-      </section>
-    </header>
-    <div id="HERO">
-      <h1>First Light Safaris</h1>
-      <blockquote>
-	<p>Unlimited explorations, throughout Namibia and beyond</p>
-	<cite>- Hardness</cite>
-      </blockquote>
-      <button class="btn btn-lg">Book now</button>
-    </div>
-    <script src="index.js"></script>
-  </body>
+	 .btn.btn-link{
+	     color: #9b7e57;
+	 }
+
+	 #HERO{
+	     background-color: #9b7e57;
+	     height: 20vh;
+	     padding: 3em;
+	     color: #FFFFFF;
+	     font-family: 'RubikBurned-Regular';
+	     margin-bottom: 0;
+	 }
+
+	 #About{
+	     height: 100vh;
+	     background-size: 100%;
+	     background-repeat: no-repeat;
+	     background-image: url("img/bg1.jpg");
+	     background-attachment: fixed;
+	     padding: 6em;
+	 }
+
+	 section h2{
+	     color: #ffffff;
+	     font-family: 'RubikBurned-Regular';
+	 }
+
+	 #About div{
+	     color: #ffffff;
+	     font-size: 1.5em;
+	     background: rgba(155, 126, 87, 0.73);
+	     padding: 2em;
+	 }
+
+	 #DESTINATIONS{
+	     padding: 6em;
+	 }
+	 
+	 #DESTINATIONS h2{
+	     color: #9b7e57;
+	     margin-bottom: 2em;
+	 }
+
+	 #DESTINATIONS .columns{
+	     border: thick solid #9b7e57;
+	     margin-bottom: 2em;
+	     border-radius: 5px;
+	 }
+	 
+	 #map1, #map2, #map3 {
+	     height: 415px;
+	 }
+
+	 #map1-cover, #map2-cover, #map3-cover{
+	     background-size: 100% 100%;
+	     background-repeat: no-repeat;
+	 }
+
+	 #map1-cover{
+	     background-image: url("img/etosha.jpg");
+	 }
+
+	 #map2-cover{
+	     background-image: url("img/sossusvlei.jpg");
+	 }
+
+	 #map3-cover{
+	     background-image: url("img/fish-river-canyon.jpg");
+	 }
+
+	 .destination-names{
+	     position: relative;
+	     color: #ffffff;
+	     font-family: 'RubikBurned-Regular';
+	     top: 170px;
+	 }
+
+	 #TESTIMONIALS{
+	     background: #9b7e57;
+	     color: #FFFFFF;
+	     padding: 2em;
+	 }
+
+	 #BOOKINGS{
+	     color: #9b7e57;
+	     padding: 2em;
+	 }
+
+	 #BOOKINGS h2{
+	     color: #9b7e57;
+	 }
+
+	 #FORMBTN{
+	     background:#9b7e57;
+	     color: #ffffff;
+	     border-color: #9b7e57;
+	 }
+
+	 #CONTACT{
+	     background:#9b7e57;
+	     padding: 2em;
+	     text-align: center;
+	 }
+
+	 #CONTACT p{
+	     color: #ffffff;
+	 }
+
+	 footer{
+	     background: #262626;
+	     padding: 1em;
+	     color: #ffffff;
+	 }
+
+	 footer a{
+	     color: cyan !important;
+	 }
+	</style>
+    </head>
+    <body>
+	<header class="navbar">
+	    <section class="navbar-section">
+		<a href="#About" class="btn btn-link">About</a>
+		<a href="#DESTINATIONS" class="btn btn-link">Destinations</a>
+		<a href="#TESTIMONIALS" class="btn btn-link">Testimonials</a>
+	    </section>
+	    <section class="navbar-center">
+		<img src="img/logo.jpg" id="LOGO">
+	    </section>
+	    <section class="navbar-section">
+		<a href="#BOOKINGS" class="btn btn-link">Bookings</a>
+		<a href="#CONTACT" class="btn btn-link">Contact</a>
+	    </section>
+	</header>
+	<div id="HERO" class="sec">
+	    <h1>First Light Safaris</h1>
+	</div>
+	<section id="About">
+	    <div class="col-8 col-mx-auto">
+		<h2 class="text-center">About <br>First Light Safaris</h2>
+		<p>"Lorem ipsum dolor sit amet, consectetur adipiscing
+		    elit, sed do eiusmod tempor incididunt ut labore et
+		    dolore magna aliqua. Ut enim ad minim veniam, quis
+		    nostrud exercitation ullamco laboris nisi ut aliquip
+		    ex ea commodo consequat. Duis aute irure dolor in
+		    reprehenderit in voluptate velit esse cillum dolore eu
+		    fugiat nulla pariatur. Excepteur sint occaecat
+		    cupidatat non proident, sunt in culpa qui officia
+		    deserunt mollit anim id est laborum."</p>
+	    </div>
+	</section>
+	<section id="DESTINATIONS">
+	    <h2 class="text-center">Some of Our Destinations</h2>
+	    <div class="columns">
+		<div id="map1" class="col-6"></div>
+		<div id="map1-cover" class="col-6">
+		    <h3 class="text-center destination-names">Etosha National Park</h3>
+		</div>
+	    </div>
+	    <div class="columns">
+		<div id="map2-cover" class="col-6">
+		    <h3 class="text-center destination-names">Sossusvlei</h3>
+		</div>
+		<div id="map2" class="col-6"></div>
+	    </div>
+	    <div class="columns">
+		<div id="map3" class="col-6"></div>
+		<div id="map3-cover" class="col-6">
+		    <h3 class="text-center destination-names">Fish River Canyon</h3>
+		</div>
+	    </div>
+	</section>
+	<section id="TESTIMONIALS">
+	    <h2 class="text-center">Testimonials</h2>
+	    <div class="columns">
+		<blockquote class="col-3 col-mx-auto">
+		    <p>The advance of technology is based on making it fit in so that you don't really even notice it, so it's part of everyday life. </p>
+		    <cite>- Bill Gates</cite>
+		</blockquote>
+
+		<blockquote class="col-3">
+		    <p>The advance of technology is based on making it fit in so that you don't really even notice it, so it's part of everyday life. </p>
+		    <cite>- Bill Gates</cite>
+		</blockquote>
+
+		<blockquote class="col-3">
+		    <p>The advance of technology is based on making it fit in so that you don't really even notice it, so it's part of everyday life. </p>
+		    <cite>- Bill Gates</cite>
+		</blockquote>
+	    </div>
+	</section>
+	<section id="BOOKINGS">
+	    <h2 class="text-center">Tour Bookings</h2>
+	    <div="columns">
+		<div class="form-group col-5 col-mx-auto">
+		    <label class="form-label" for="input-example-1">Full Name</label>
+		    <input class="form-input" type="text" id="input-example-1" placeholder="Full Name">
+		</div>
+		<br>
+		<div class="form-group col-5 col-mx-auto">
+		    <label class="form-label" for="input-example-1">Email Address</label>
+		    <input class="form-input" type="text" id="input-example-1" placeholder="Email Address">
+		</div>
+		<br>
+		<div class="form-group col-5 col-mx-auto">
+		    <label class="form-label" for="input-example-1">Phone Number</label>
+		    <input class="form-input" type="text" id="input-example-1" placeholder="Phone Number">
+		</div>
+		<br>
+		<div class="form-group col-5 col-mx-auto">
+		    <label class="form-label" for="input-example-1">Departure Date</label>
+		    <input class="form-input" id="input-example-14" type="date" value="2024-12-31">
+		</div>
+		<br>
+		<div class="form-group col-5 col-mx-auto">
+		    <label class="form-label" for="input-example-1">Return Date</label>
+		    <input class="form-input" id="input-example-14" type="date" value="2024-12-31">
+		</div>
+		<br>
+		<div class="form-group col-5 col-mx-auto">
+		    <label class="form-label" for="input-example-1">Pickup Address (Airpot or Hotel)</label>
+		    <input class="form-input" type="text" id="input-example-1" placeholder="Pickup Address (Airpot or Hotel)">
+		</div>
+		<br>
+		<div class="form-group col-5 col-mx-auto">
+		    <label class="form-label" for="input-example-1">Choose your destination</label>
+		    <select class="form-select select-lg">
+			<option>Choose your destination</option>
+			<option>Etosha National Park</option>
+			<option>Sossusvlei</option>
+			<option>Fish River Canyon</option>
+		    </select>
+		</div>
+		<br>
+		<div class="form-group col-5 col-mx-auto">
+		    <label class="form-label" for="input-example-1">Number of Passengers</label>
+		    <input class="form-input" id="input-example-13" type="number" placeholder="Number of Passengers" value="1">
+		</div>
+		<br>
+		<div class="form-group col-5 col-mx-auto">
+		    <label class="form-label" for="input-example-1">Additional Message</label>
+		    <textarea class="form-input" id="input-example-6" placeholder="Additional Message" rows="3"></textarea>
+		</div>
+		<br>
+		<div class="form-group col-5 col-mx-auto">
+		    <button class="btn btn-lg" id="FORMBTN">Submit</button>
+		</div>
+	    </div>
+	</section>
+	<section id="CONTACT">
+	    <h2>Contact Us</h2>
+	    <p>Send us an email: <mark>info@firstlightsafaris.com.na</mark></p>
+	</section>
+	<footer class="text-center">
+	    Website powered by <a href="https://bizkit.kwatafana.org/">BizKit</a>
+	    Hand coded by <a href="https://x.com/cy6erlion">cy6erlion</a>
+	</footer>
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+		integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+		     crossorigin=""></script>
+
+	<script>
+	 var map1 = L.map('map1').setView([-18.85494110130165, 16.329362615338717], 8); // Etosha National Park
+	 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	     maxZoom: 19,
+	     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	 }).addTo(map1);
+
+	 var map2 = L.map('map2').setView([-24.748548226831254, 15.297371297945777], 8); // Sossusvlei
+	 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	     maxZoom: 19,
+	     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	 }).addTo(map2);
+
+	 var map3 = L.map('map3').setView([-27.78799495126539, 17.548753042330556], 8); // Fish River Canyon
+	 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	     maxZoom: 19,
+	     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	 }).addTo(map3);
+	</script>
+    </body>
 </html>
