@@ -19,15 +19,24 @@
 	 }
 
 	 #LOGO{
-	     width: 110px;
+	     width: 80px;
+
 	 }
 
 	 .btn.btn-link{
-	     color: #9b7e57;
+	     color: #ffa109;
+	     font-weight: bolder;
+	 }
+
+	 .btn.btn-link.active,
+	 .btn.btn-link:active,
+	 .btn.btn-link:focus,
+	 .btn.btn-link:hover{
+	     color: #ffa109;
 	 }
 
 	 #HERO{
-	     background-color: #9b7e57;
+	     background-color: #ffa109;
 	     height: 20vh;
 	     padding: 3em;
 	     color: #FFFFFF;
@@ -36,12 +45,36 @@
 	 }
 
 	 #About{
+	     border-top: 2px solid #ffa109;
+	     border-bottom: 2px solid #ffa109;
 	     height: 100vh;
 	     background-size: 100%;
 	     background-repeat: no-repeat;
-	     background-image: url("img/bg1.jpg");
+	     background-image: url("img/bg2.jpg");
 	     background-attachment: fixed;
-	     padding: 6em;
+	     padding: 2em;
+	 }
+
+	 #About button{
+	     float: right;
+	 }
+
+	 .destBtns, #About button{
+	     background-color: #ffa109;
+	     border-color: #ffa109 !important;
+	     color: #ffffff !important;
+	     border-radius: 5px !important;
+	 }
+	 #BANNER_BTN{
+	     background-color: #262626;
+	     color:  #eeeeee !important;
+	     border-color: #262626 !important;
+	     font-family: 'RubikBurned-Regular';
+	     border-radius: 5px !important;
+	 }
+	 .destBtns{
+	     background-color: #ffa109 !important;
+	     border-color: #ffa109 !important;
 	 }
 
 	 section h2{
@@ -49,28 +82,35 @@
 	     font-family: 'RubikBurned-Regular';
 	 }
 
-	 #About div{
+	 #About h1{
 	     color: #ffffff;
-	     font-size: 1.5em;
-	     background: rgba(155, 126, 87, 0.73);
+	     font-size: 4em;
 	     padding: 2em;
+	     font-family: 'RubikBurned-Regular';
+	 }
+
+	 .yellow{
+	     color: #ffa109;
 	 }
 
 	 #DESTINATIONS{
-	     padding: 6em;
+	     padding: 2em;
+	     background-attachment: fixed;
 	 }
 	 
 	 #DESTINATIONS h2{
-	     color: #9b7e57;
+	     color: #ffa109;
 	     margin-bottom: 2em;
 	 }
 
 	 #DESTINATIONS .columns{
-	     border: thick solid #9b7e57;
-	     margin-bottom: 2em;
-	     border-radius: 5px;
+	     margin: 2em;
 	 }
-	 
+
+	 #DESTINATIONS .card{
+	     margin: 0 .5em;
+	 }
+
 	 #map1, #map2, #map3 {
 	     height: 415px;
 	 }
@@ -99,29 +139,22 @@
 	     top: 170px;
 	 }
 
-	 #TESTIMONIALS{
-	     background: #9b7e57;
-	     color: #FFFFFF;
-	     padding: 2em;
-	 }
-
 	 #BOOKINGS{
-	     color: #9b7e57;
+	     background-image: url("img/giraffe-skin.jpg");
+	     background-size: 100%;
+	     background-attachment: fixed;
+	     color: #ffffff;
 	     padding: 2em;
-	 }
-
-	 #BOOKINGS h2{
-	     color: #9b7e57;
 	 }
 
 	 #FORMBTN{
-	     background:#9b7e57;
+	     background:#ffa109;
 	     color: #ffffff;
-	     border-color: #9b7e57;
+	     border-color: #ffa109;
 	 }
 
 	 #CONTACT{
-	     background:#9b7e57;
+	     background:#ffa109;
 	     padding: 2em;
 	     text-align: center;
 	 }
@@ -139,137 +172,166 @@
 	 footer a{
 	     color: cyan !important;
 	 }
+
+	 #BANNER_TEXT{
+	     color: grey;
+	     float: right;
+	 }
+
+	 .card{
+	     font-family: 'RubikBurned-Regular';
+	 }
+
+	 .card-title{
+	     font-size: 1.8em;
+	 }
 	</style>
     </head>
     <body>
 	<header class="navbar">
 	    <section class="navbar-section">
-		<a href="#About" class="btn btn-link">About</a>
-		<a href="#DESTINATIONS" class="btn btn-link">Destinations</a>
-		<a href="#TESTIMONIALS" class="btn btn-link">Testimonials</a>
-	    </section>
-	    <section class="navbar-center">
 		<img src="img/logo.jpg" id="LOGO">
-	    </section>
-	    <section class="navbar-section">
-		<a href="#BOOKINGS" class="btn btn-link">Bookings</a>
+		<a href="./index.html" class="btn btn-link">Home</a>
+		<a href="#DESTINATIONS" class="btn btn-link">Destinations</a>
 		<a href="#CONTACT" class="btn btn-link">Contact</a>
 	    </section>
+	    <section class="navbar-section px-2">
+		<button id="BANNER_BTN" class="btn btn-primary btn-lg mx-2">☀️ Explore Namibia</button>
+	    </section>
 	</header>
-	<div id="HERO" class="sec">
-	    <h1>First Light Safaris</h1>
-	</div>
 	<section id="About">
-	    <div class="col-8 col-mx-auto">
-		<h2 class="text-center">About <br>First Light Safaris</h2>
-		<p>"Lorem ipsum dolor sit amet, consectetur adipiscing
-		    elit, sed do eiusmod tempor incididunt ut labore et
-		    dolore magna aliqua. Ut enim ad minim veniam, quis
-		    nostrud exercitation ullamco laboris nisi ut aliquip
-		    ex ea commodo consequat. Duis aute irure dolor in
-		    reprehenderit in voluptate velit esse cillum dolore eu
-		    fugiat nulla pariatur. Excepteur sint occaecat
-		    cupidatat non proident, sunt in culpa qui officia
-		    deserunt mollit anim id est laborum."</p>
-	    </div>
+	    <h1>First <span class="yellow">Light</span> Safaris</h1>
 	</section>
 	<section id="DESTINATIONS">
-	    <h2 class="text-center">Some of Our Destinations</h2>
-	    <div class="columns">
-		<div id="map1" class="col-6"></div>
-		<div id="map1-cover" class="col-6">
-		    <h3 class="text-center destination-names">Etosha National Park</h3>
-		</div>
-	    </div>
-	    <div class="columns">
-		<div id="map2-cover" class="col-6">
-		    <h3 class="text-center destination-names">Sossusvlei</h3>
-		</div>
-		<div id="map2" class="col-6"></div>
-	    </div>
-	    <div class="columns">
-		<div id="map3" class="col-6"></div>
-		<div id="map3-cover" class="col-6">
-		    <h3 class="text-center destination-names">Fish River Canyon</h3>
-		</div>
-	    </div>
-	</section>
-	<section id="TESTIMONIALS">
-	    <h2 class="text-center">Testimonials</h2>
-	    <div class="columns">
-		<blockquote class="col-3 col-mx-auto">
-		    <p>The advance of technology is based on making it fit in so that you don't really even notice it, so it's part of everyday life. </p>
-		    <cite>- Bill Gates</cite>
-		</blockquote>
+	    <h2>Destinations...</h2>
 
-		<blockquote class="col-3">
-		    <p>The advance of technology is based on making it fit in so that you don't really even notice it, so it's part of everyday life. </p>
-		    <cite>- Bill Gates</cite>
-		</blockquote>
 
-		<blockquote class="col-3">
-		    <p>The advance of technology is based on making it fit in so that you don't really even notice it, so it's part of everyday life. </p>
-		    <cite>- Bill Gates</cite>
-		</blockquote>
-	    </div>
-	</section>
-	<section id="BOOKINGS">
-	    <h2 class="text-center">Tour Bookings</h2>
-	    <div="columns">
-		<div class="form-group col-5 col-mx-auto">
-		    <label class="form-label" for="input-example-1">Full Name</label>
-		    <input class="form-input" type="text" id="input-example-1" placeholder="Full Name">
+	    <div class="columns">
+		<div class="card col-5">
+		    <div class="card-image">
+			<img src="img/etosha.jpg" class="img-responsive">
+		    </div>
+		    <div class="card-header">
+			<div class="card-title h5">🦓 Bucket List trip</div>
+			<div class="card-subtitle text-gray"><i class="icon icon-time"></i> 10 Days / 9 Nights</div>
+		    </div>
+		    <div class="card-body">
+			<i class="icon icon-location"></i> Windhoek
+			<br><i class="icon icon-location"></i> Kalahari Namibia
+			<br><i class="icon icon-location"></i> Sesriem
+			<br><i class="icon icon-location"></i>Sossusvlei
+			<br><i class="icon icon-location"></i>Swakopmund
+			<br><i class="icon icon-location"></i>Twyfelfontein
+			<br><i class="icon icon-location"></i>Ongava Private Game Reserve
+			<br><i class="icon icon-location"></i>Etosha National Park
+			<br><i class="icon icon-location"></i>Okonjima Nature Reserve
+		    </div>
+		    <div class="card-footer">
+			<button class="btn btn-primary btn-lg destBtns">View</button>
+		    </div>
 		</div>
-		<br>
-		<div class="form-group col-5 col-mx-auto">
-		    <label class="form-label" for="input-example-1">Email Address</label>
-		    <input class="form-input" type="text" id="input-example-1" placeholder="Email Address">
-		</div>
-		<br>
-		<div class="form-group col-5 col-mx-auto">
-		    <label class="form-label" for="input-example-1">Phone Number</label>
-		    <input class="form-input" type="text" id="input-example-1" placeholder="Phone Number">
-		</div>
-		<br>
-		<div class="form-group col-5 col-mx-auto">
-		    <label class="form-label" for="input-example-1">Departure Date</label>
-		    <input class="form-input" id="input-example-14" type="date" value="2024-12-31">
-		</div>
-		<br>
-		<div class="form-group col-5 col-mx-auto">
-		    <label class="form-label" for="input-example-1">Return Date</label>
-		    <input class="form-input" id="input-example-14" type="date" value="2024-12-31">
-		</div>
-		<br>
-		<div class="form-group col-5 col-mx-auto">
-		    <label class="form-label" for="input-example-1">Pickup Address (Airpot or Hotel)</label>
-		    <input class="form-input" type="text" id="input-example-1" placeholder="Pickup Address (Airpot or Hotel)">
-		</div>
-		<br>
-		<div class="form-group col-5 col-mx-auto">
-		    <label class="form-label" for="input-example-1">Choose your destination</label>
-		    <select class="form-select select-lg">
-			<option>Choose your destination</option>
-			<option>Etosha National Park</option>
-			<option>Sossusvlei</option>
-			<option>Fish River Canyon</option>
-		    </select>
-		</div>
-		<br>
-		<div class="form-group col-5 col-mx-auto">
-		    <label class="form-label" for="input-example-1">Number of Passengers</label>
-		    <input class="form-input" id="input-example-13" type="number" placeholder="Number of Passengers" value="1">
-		</div>
-		<br>
-		<div class="form-group col-5 col-mx-auto">
-		    <label class="form-label" for="input-example-1">Additional Message</label>
-		    <textarea class="form-input" id="input-example-6" placeholder="Additional Message" rows="3"></textarea>
-		</div>
-		<br>
-		<div class="form-group col-5 col-mx-auto">
-		    <button class="btn btn-lg" id="FORMBTN">Submit</button>
+		<div class="card col-5">
+		    <div class="card-image">
+			<img src="img/himba.jpg" class="img-responsive">
+		    </div>
+		    <div class="card-header">
+			<div class="card-title h5">🦒 Cultural tour</div>
+			<div class="card-subtitle text-gray"><i class="icon icon-time"></i> 10 Days / 9 Nights</div>
+		    </div>
+		    <div class="card-body">
+			<i class="icon icon-location"></i>Windhoek
+			<br><i class="icon icon-location"></i>Erongo Mountains
+			<br><i class="icon icon-location"></i>Twyfelfontein
+			<br><i class="icon icon-location"></i>Opuwo
+			<br><i class="icon icon-location"></i>Etosha East
+			<br><i class="icon icon-location"></i>Waterberg Region
+		    </div>
+		    <div class="card-footer">
+			<button class="btn btn-primary btn-lg destBtns">View</button>
+		    </div>
 		</div>
 	    </div>
+
+
+
+	    <div class="columns">
+		<div class="card col-5">
+		    <div class="card-image">
+			<img src="img/dune.jpg" class="img-responsive">
+		    </div>
+		    <div class="card-header">
+			<div class="card-title h5">🦁 Exclusive Travel</div>
+			<div class="card-subtitle text-gray"><i class="icon icon-time"></i> 10 Days / 9 Nights</div>
+		    </div>
+		    <div class="card-body">
+			<i class="icon icon-location"></i>NamibRand Nature Reserve
+			<br><i class="icon icon-location"></i>Swakopmund
+			<br><i class="icon icon-location"></i>Namib
+			<br><i class="icon icon-location"></i>Skeleton Coast
+			<br><i class="icon icon-location"></i>Zambezi Region
+			<br><i class="icon icon-location"></i>Greater Windhoek
+		    </div>
+		    <div class="card-footer">
+			<button class="btn btn-primary btn-lg destBtns">View</button>
+		    </div>
+		</div>
+
+ 		<div class="card col-5">
+		    <div class="card-image">
+			<img src="img/antelope.jpg" class="img-responsive">
+		    </div>
+		    <div class="card-header">
+			<div class="card-title h5">🦏 King Nahale gate</div>
+			<div class="card-subtitle text-gray"><i class="icon icon-time"></i> 3 Days / 2 Nights</div>
+		    </div>
+		    <div class="card-body">
+			<i class="icon icon-location"></i>Etosha East
+			<br><i class="icon icon-location"></i>Etosha National Park
+		    </div>
+		    <div class="card-footer">
+			<button class="btn btn-primary btn-lg destBtns">View</button>
+		    </div>
+		</div>
+	    </div>
+	    <div class="columns">
+		<div class="card col-5">
+		    <div class="card-image">
+			<img src="img/boat.png" class="img-responsive">
+		    </div>
+		    <div class="card-header">
+			<div class="card-title h5">🐳 Namibian Summer</div>
+			<div class="card-subtitle text-gray"><i class="icon icon-time"></i> 10 Days / 9 Nights</div>
+		    </div>
+		    <div class="card-body">
+			<i class="icon icon-location"></i>Okonjima Nature Reserve
+			<br><i class="icon icon-location"></i>Ongava Private Game Reserve
+			<br><i class="icon icon-location"></i>Twyfelfontein
+			<br><i class="icon icon-location"></i>Swakopmund
+			<br><i class="icon icon-location"></i>Sesriem
+			<br><i class="icon icon-location"></i>Kalahari Namibia
+		    </div>
+		    <div class="card-footer">
+			<button class="btn btn-primary btn-lg destBtns">View</button>
+		    </div>
+		</div>
+		<div class="card col-5">
+		    <div class="card-image">
+			<img src="img/dune2.jpg" class="img-responsive">
+		    </div>
+		    <div class="card-header">
+			<div class="card-title h5">🐆 Sossusvlei getway</div>
+			<div class="card-subtitle text-gray"><i class="icon icon-time"></i> 3 Days / 2 Nights</div>
+		    </div>
+		    <div class="card-body">
+			<i class="icon icon-location"></i>Sesriem
+			<br><i class="icon icon-location"></i>Sossusvlei
+		    </div>
+		    <div class="card-footer">
+			<button class="btn btn-primary btn-lg destBtns">View</button>
+		    </div>
+		</div>
+	    </div>
+	    <h3 class="text-center">🐘 🦒 🦭</h3>
 	</section>
 	<section id="CONTACT">
 	    <h2>Contact Us</h2>
@@ -280,8 +342,8 @@
 	    Hand coded by <a href="https://x.com/cy6erlion">cy6erlion</a>
 	</footer>
 	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-		integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-		     crossorigin=""></script>
+		     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+		crossorigin=""></script>
 
 	<script>
 	 var map1 = L.map('map1').setView([-18.85494110130165, 16.329362615338717], 8); // Etosha National Park
