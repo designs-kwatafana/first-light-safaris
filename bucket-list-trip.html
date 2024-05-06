@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Bucket List Trip | First Light Safaris</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="./css/vendor/spectre.min.css">
+	<link rel="stylesheet" href="./css/vendor/spectre-exp.min.css">
+	<link rel="stylesheet" href="./css/vendor/spectre-icons.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+	      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+	      crossorigin=""/>
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+		integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+		crossorigin=""></script>
+
+	<style>
+	 @font-face {
+	     font-family: 'RubikBurned-Regular';
+	     src: URL('fonts/RubikBurned-Regular.ttf') format('truetype');
+	 }
+
+	 #LOGO{
+	     width: 80px;
+
+	 }
+
+	 .btn.btn-link{
+	     color: #ffa109;
+	     font-weight: bolder;
+	 }
+
+	 a, a:visited, .btn.btn-link.active,
+	 .btn.btn-link:active,
+	 .btn.btn-link:focus,
+	 .btn.btn-link:hover{
+	     color: #ffa109;
+	 }
+
+	 a:hover{
+	     color: gray;
+	 }
+	 #HERO{
+	     background-color: #ffa109;
+	     height: 20vh;
+	     padding: 3em;
+	     color: #FFFFFF;
+	     font-family: 'RubikBurned-Regular';
+	     margin-bottom: 0;
+	 }
+
+	 #BANNER_BTN{
+	     background-color: #3b4351;
+	     color:  #eeeeee !important;
+	     border-color: #3b4351 !important;
+	     font-family: 'RubikBurned-Regular';
+	     border-radius: 5px !important;
+	 }
+
+	 footer{
+	     background: #3b4351;
+	     padding: 1em;
+	     color: #ffffff;
+	 }
+
+	 footer a{
+	     color: cyan !important;
+	 }
+
+	 h2, h3{
+	     font-family: 'RubikBurned-Regular';
+	 }
+
+	 section{
+	     padding: 1.5em;
+	 }
+
+	 h3, section p{
+	     color: #ffa109;
+	 }
+
+	 section p{
+	     font-size: 1.4em;
+	     padding: 1em;
+	 }
+	 .carousel{
+	     border-radius: 5px;
+	     margin-top: 5em;
+	     border: thick solid #ffa109;
+	 }
+
+	 .timeline .timeline-item .timeline-icon::before {
+	     border: .1rem solid #ffa109;
+	 }
+
+	 .timeline .timeline-item .timeline-icon.icon-lg{
+	     background-color: #ffa109;
+	 }
+	 .fa {
+	     color: #bcc3ce;
+	 }
+
+	 #PRICE{
+	     margin-top: 1.2em;
+	     font-size: 3em;
+	     color: #3b4351;
+	 }
+
+	 .price{
+	     color: #ffa109;
+	 }
+
+	 .daysDark{
+	     background-color: #907045;
+	     border-top: thick solid #ffa109;
+	 }
+
+	 .divider-vert[data-content]::after, .divider[data-content]::after{
+	     background-color: #907045;
+	 }
+	 .daysDark h3, .daysDark p{
+	     color: #ffffff;
+	 }
+
+	 .daysDark p{
+	     font-size: 1em;
+	     margin: .5em;
+	     padding: 0;
+	 }
+	 .table{
+	     color: #ffa109;
+	 }
+	 .daysDark .dayImages{
+	     border: thick solid #ffa109;
+	     border-radius: 5px;
+	 }
+
+	 .tab-item{
+	     cursor: pointer;
+	     border-right: thin solid #ffa109;
+	 }
+
+	 .tab-item:hover, .active{
+	     background-color: #ffa109;
+	     color: #ffffff;
+	 }
+	 .tab{
+	     border: thin solid #ffa109;
+	     border-top-left-radius: 5px;
+	     border-top-right-radius: 5px;
+	     margin-bottom: 3em;
+	 }
+
+	 .windows{
+	     display: none;
+	 }
+
+	 #DAY1_WINDOW{
+	     display: block;
+	 }
+
+	 #DAY1_MAP,
+	 #DAY2_MAP,
+	 #DAY3_MAP,
+	 #DAY4_MAP,
+	 #DAY5_MAP,
+	 #DAY6_MAP,
+	 #DAY7_MAP,
+	 #DAY8_MAP,
+	 #DAY9_MAP{
+	     height: 80vh;
+	     width: 600px;
+	     border-radius: 5px;
+	 }
+	</style>
+    </head>
+    <body>
+	<header class="navbar">
+	    <section class="navbar-section">
+		<img src="img/logo.jpg" id="LOGO">
+		<a href="./index.html" class="btn btn-link">Home</a>
+		<a href="#DESTINATIONS" class="btn btn-link">Destinations</a>
+		<a href="#CONTACT" class="btn btn-link">Contact</a>
+	    </section>
+	    <section class="navbar-section px-2">
+		<button id="BANNER_BTN" class="btn btn-primary btn-lg mx-2">☀️ Explore Namibia</button>
+	    </section>
+	</header>
+
+	<section class="columns">
+	    <div class="col-6">
+		<h2>Bucket List Trip</h2>
+		<p>
+		    A trip across Namibia. Visiting all of the
+		    significant landmarks. Embark, explore and
+		    emmerse yourself in Namibia's culture, history,
+		    wildlife and much much more...
+		</p>
+		<h3>10 Days / 9 Nights</h3>
+		<div class="timeline px-2">
+		    <div class="timeline-item" id="timeline-example-1">
+			<div class="timeline-left">
+			    <a class="timeline-icon" href="#timeline-example-1"></a>
+			</div>
+			<div class="timeline-content">
+			    Bookings
+			</div>
+		    </div>
+
+		    <div class="timeline-item" id="timeline-example-2">
+			<div class="timeline-left">
+			    <a class="timeline-icon icon-lg" href="#DAY1">
+				1
+			    </a>
+			</div>
+			<div class="timeline-content">
+			    Windhoek (Am Weinberg Estate’s Boutique Hotel)
+			    <br>
+			    <span class="px-2">
+				<i class="fa fa-bed" title="Bed"></i>
+				<i class="fa fa-cutlery" title="Food"></i>
+				<span class="mx-2" title="Night">🌑</span>
+			    </span>
+			</div>
+		    </div>
+
+		    <div class="timeline-item" id="timeline-example-2">
+			<div class="timeline-left">
+			    <a class="timeline-icon icon-lg" href="#timeline-example-2">
+				2
+			    </a>
+			</div>
+			<div class="timeline-content">
+			    Kalahari Namibia (Bagatelle Kalahari Game Ranch)
+			    <br>
+			    <span class="px-2">
+				<i class="fa fa-bed" title="Bed"></i>
+				<i class="fa fa-cutlery" title="Food"></i>
+				<span class="mx-2" title="Night">🌑</span>
+			    </span>
+			</div>
+		    </div>
+
+		    <div class="timeline-item" id="timeline-example-2">
+			<div class="timeline-left">
+			    <a class="timeline-icon icon-lg" href="#timeline-example-2">
+				3
+			    </a>
+			</div>
+			<div class="timeline-content">
+			    Sesriem (Dead Valley Lodge)
+			    <br>
+			    <span class="px-2">
+				<i class="fa fa-bed" title="Bed"></i>
+				<i class="fa fa-cutlery" title="Food"></i>
+				<span class="mx-2" title="Night">🌑</span>
+				<span class="mx-2" title="Night">🌑</span>
+			    </span>
+			</div>
+		    </div>
+
+		    <div class="timeline-item" id="timeline-example-2">
+			<div class="timeline-left">
+			    <a class="timeline-icon icon-lg" href="#timeline-example-2">
+				5
+			    </a>
+			</div>
+			<div class="timeline-content">
+			    Swakopmund (Strand Hotel Swakopmund)
+			    <br>
+			    <span class="px-2">
+				<i class="fa fa-bed" title="Bed"></i>
+				<i class="fa fa-cutlery" title="Food"></i>
+				<span class="mx-2" title="Night">🌑</span>
+			    </span>
+			</div>
+		    </div>
+
+		    <div class="timeline-item" id="timeline-example-2">
+			<div class="timeline-left">
+			    <a class="timeline-icon icon-lg" href="#timeline-example-2">
+				6
+			    </a>
+			</div>
+			<div class="timeline-content">
+			    Twyfelfontein (Mowani Mountain Camp)
+			    <br>
+			    <span class="px-2">
+				<i class="fa fa-bed" title="Bed"></i>
+				<i class="fa fa-cutlery" title="Food"></i>
+				<span class="mx-2" title="Night">🌑</span>
+			    </span>
+			</div>
+		    </div>
+
+		    <div class="timeline-item" id="timeline-example-2">
+			<div class="timeline-left">
+			    <a class="timeline-icon icon-lg" href="#timeline-example-2">
+				7
+			    </a>
+			</div>
+			<div class="timeline-content">
+			    Ongava Lodge (Ongava Private Game Reserve)
+			    <br>
+			    <span class="px-2">
+				<i class="fa fa-bed" title="Bed"></i>
+				<i class="fa fa-cutlery" title="Food"></i>
+				<span class="mx-2" title="Night">🌑</span>
+				<span class="mx-2" title="Night">🌑</span>
+			    </span>
+			</div>
+		    </div>
+
+		    <div class="timeline-item" id="timeline-example-2">
+			<div class="timeline-left">
+			    <a class="timeline-icon icon-lg" href="#timeline-example-2">
+				9
+			    </a>
+			</div>
+			<div class="timeline-content">
+			    Okonjima Nature Reserve (Okonjima Luxury Bush Camp)
+			    <br>
+			    <span class="px-2">
+				<i class="fa fa-bed" title="Bed"></i>
+				<i class="fa fa-cutlery" title="Food"></i>
+				<span class="mx-2" title="Night">🌑</span>
+			    </span>
+			</div>
+		    </div>
+		</div>
+	    </div>
+
+	    <div class="col-6">
+		<!--============== Image Slider ====================-->
+		<div class="carousel">
+		    <!-- carousel locator -->
+		    <input class="carousel-locator" id="slide-1" type="radio" name="carousel-radio" hidden="" checked="">
+		    <input class="carousel-locator" id="slide-2" type="radio" name="carousel-radio" hidden="">
+		    <input class="carousel-locator" id="slide-3" type="radio" name="carousel-radio" hidden="">
+		    <input class="carousel-locator" id="slide-4" type="radio" name="carousel-radio" hidden="">
+
+		    <!-- carousel container -->
+		    <div class="carousel-container">
+			<!-- carousel item -->
+			<figure class="carousel-item">
+			    <label class="item-prev btn btn-action btn-lg" for="slide-4"><i class="icon icon-arrow-left"></i></label>
+			    <label class="item-next btn btn-action btn-lg" for="slide-2"><i class="icon icon-arrow-right"></i></label>
+			    <img class="img-responsive rounded" src="img/windhoek.jpg" alt="Windhoek">
+			</figure>
+			<figure class="carousel-item">
+			    <label class="item-prev btn btn-action btn-lg" for="slide-1"><i class="icon icon-arrow-left"></i></label>
+			    <label class="item-next btn btn-action btn-lg" for="slide-3"><i class="icon icon-arrow-right"></i></label>
+			    <img class="img-responsive rounded" src="img/elephants.jpg" alt="Elephants">
+			</figure>
+			<figure class="carousel-item">
+			    <label class="item-prev btn btn-action btn-lg" for="slide-2"><i class="icon icon-arrow-left"></i></label>
+			    <label class="item-next btn btn-action btn-lg" for="slide-4"><i class="icon icon-arrow-right"></i></label>
+			    <img class="img-responsive rounded" src="img/dune.jpg" alt="macOS El Capitan Wallpaper">
+			</figure>
+			<figure class="carousel-item">
+			    <label class="item-prev btn btn-action btn-lg" for="slide-3"><i class="icon icon-arrow-left"></i></label>
+			    <label class="item-next btn btn-action btn-lg" for="slide-1"><i class="icon icon-arrow-right"></i></label>
+			    <img class="img-responsive rounded" src="img/sossusvlei.jpg" alt="Sossusvlei">
+			</figure>
+		    </div>
+		    <!-- carousel navigation -->
+		    <div class="carousel-nav">
+			<label class="nav-item text-hide c-hand" for="slide-1">1</label>
+			<label class="nav-item text-hide c-hand" for="slide-2">2</label>
+			<label class="nav-item text-hide c-hand" for="slide-3">3</label>
+			<label class="nav-item text-hide c-hand" for="slide-4">4</label>
+		    </div>
+
+		</div>
+		<!--============== END image slider =====================-->
+		<h3 id="PRICE" class="text-center">Rate starting from: <br> <span class="price">NAD88,000.00</span> <br>per person</h3>
+	    </div>
+	</section>
+
+	<!--============== DAY TABS =====================-->
+	<section class="days daysDark">
+	    <ul class="tab tab-block">
+		<li class="tab-item active">
+		    <span>Day 1</span>
+		</li>
+		<li class="tab-item">
+		    <span>Day 2</span>
+		</li>
+		<li class="tab-item">
+		    <span>Day 3</span>
+		</li>
+		<li class="tab-item">
+		    <span>Day 4</span>
+		</li>
+		<li class="tab-item">
+		    <span>Day 5</span>
+		</li>
+		<li class="tab-item">
+		    <span>Day 6</span>
+		</li>
+		<li class="tab-item">
+		    <span>Day 7</span>
+		</li>
+		<li class="tab-item">
+		    <span>Day 8</span>
+		</li>
+		<li class="tab-item">
+		    <span>Day 9<span>
+		</li>
+	    </ul>
+
+	    <!--==============DAY 1 =====================-->
+	    <div class="windows" id="DAY1_WINDOW">
+		<h3>Day 1:<br> Am Weinberg Estate’s Boutique Hotel, Windhoek </h3>
+		<div class="divider"></div>
+		<div class="columns">
+		    <div class="column col-6">
+			<img src="img/windhoek.jpg" class="img-responsive dayImages" alt="Windhoek">
+		    </div>
+		    <div class="column col-6">
+			<p>
+			    Windhoek, the capital of Namibia, is located
+			    in a basin between the Khomas Highland, Auas
+			    and Eros Mountains. It is 1,680m above sea
+			    level, 650km north of the Orange River and
+			    360km from the Atlantic sea. Whether due to
+			    pure luck or a brilliant stroke of Germanic
+			    planning, the city is situated in almost the
+			    countries epicentre. This location has
+			    obvious benefits when it comes to governing a
+			    country the size of Namibia, and also makes
+			    it the ideal place to start and plan any
+			    Namibian travel.<br>
+			    The majority of tourists visiting Namibia
+			    start their adventure in the capital as it
+			    is the main entry point to the country.<br>
+			    In 2013 the population of Windhoek was approximately 342,000 people, an extremely small capital by global standards. This number is growing rapidly at present mostly due to a lack of employment in rural areas. Despite the large increase in population over the last few years the city centre is extremely clean, and mostly trouble free. Most tourists comment on the cleanliness of the city, and often pronounce it to be a most un-African city (a somewhat back-handed compliment).
+			</p>
+		    </div>
+		</div>
+
+		<div class="columns">
+		    <div class="column col-6">
+			<p>
+			    The city centre is characterized by a proliferation of German style buildings, a lasting reminder of Namibia's early colonial history. Early buildings such as the1890s Alte Feste (Old Fort), the sandstone Lutheran Christi’s Church, the Tintenpalast (seat of Namibia’s government), and the Parliament Gardens are of particular interest. Just west, past leafy Zoo Park, the Post Street Mall shopping walkway has a meteorite display. North is the Owela Museum of natural history and ethnography. The nearby National Art Gallery of Namibia showcases works by local artists. The Trans Namib Museum, in Windhoek Railway Station, explores the country’s transport history. Northwest is the diverse Katutura suburb, with its markets and local taverns known as shebeens. Further west, Daan Viljoen Game Reserve is home to kudu antelope, zebras and rich birdlife.
+			</p>
+
+			<p>
+			    In a wonderful display of irony, the Alte Feste Fort, once the bastion of German colonialism, now houses the National Museum which places particular emphasis on the freedom struggle and Namibian independence.
+			</p>
+
+			<p>
+			    Windhoek has had several names, many inspired by the hot water springs found in the area, the earliest of which were the Damara /Ais //Gams (/ indicates a click in Nama spelling) which means firewater and the Herero Otjimuise or place of steam. The area was also called Queen Adelaide's Baths for a (mercifully) brief time. Several opinions are offered for the origin of the present name, the most popular of these is that sometime before 1840 Jonker Afrikaner, a Nama leader, named the area Winterhoek, after the farm in South Africa where he was born. Windhoek, or windy corner, is a corruption of this name.
+			</p>
+
+			<p>
+			    During the day the city centre has a European cafe culture, German cuisine dominates, but Namibian influence can be found in the quantity and quality of meat on offer. Saying that, the streets are choc-a-bloc with people of all ages and cultures, all bearing a wonderful sense of pride, hope and ambition.
+			</p>
+
+			<p>
+			    Nightlife in the city centre has grown with the population, with a decent amount of restaurants, bars and night clubs.
+			</p>
+
+			<p>
+			    Most importantly Windhoek is home to Namibia's brewing industry, and for the less active Windhoek is a great place to while away the time while sipping (or gulping) a cold beer. There are also a number of private hospitals, a state run hospital, and doctor’s surgeries, banks, (with 24 hr ATM's) pharmacies, supermarkets, bakeries, and clothes shops. There is a large(ish) shopping mall at Maerua Mall, (complete with indoor swimming pool and gymnasium) and a smaller one on Post Street Mall, (Town Square) and at Wernhill Park, all worth a visit, especially if you've had enough of looking at curios. Windhoek's (and Namibia's) sense of progress since Independence, is emphasized by the presence of new offices, combined with expanding and bustling building and commerce industries.
+			</p>
+		    </div>
+		    <div class="column col-6">
+			<div id="DAY1_MAP"></div><br>
+			<h3 class="my-2">Overnight: Am Weinberg Estate’s <br>Boutique Hotel</h3>
+			<p>The Am Weinberg Estate’s Boutique Hotel provides all of the exclusivity and privacy you might expect from this prestigious Estate – making it the perfect retreat when travelling on vacation or business. The elegant 43-bedroom hotel wraps around a heritage building, creating an inviting courtyard. This design complements its historic character, while modern amenities ensure the utmost comfort. Aside from the location and spectacular views, hotel guests also have access to facilities including the Estate’s Soulstice Day Spa, two upmarket restaurants and the Conference Centre.</p>
+			<table class="table">
+			    <thead>
+				<tr>
+				    <th>Information</th>
+				    <th>Value</th>
+				</tr>
+			    </thead>
+			    <tbody>
+				<tr>
+				    <td>Distance</td>
+				    <td>40.7km</td>
+				</tr>
+				<tr>
+				    <td>Travel Time</td>
+				    <td>29 minutes</td>
+				</tr>
+				<tr>
+				    <td>GPS Co-ordinates</td>
+				    <td>S 22° 34' 36.740" E 17° 06' 31.937"</td>
+				</tr>
+			    </tbody>
+			</table>
+
+			<h4 class="text-right">
+			    <i class="fa fa-bed" title="Bed"></i>
+			    <i class="fa fa-cutlery" title="Food"></i>
+			    <kbd>Bed and Breakfast</kbd>
+			</h4>
+		    </div>
+		</div>
+	    </div> <!--============== END DAY 1 =====================-->
+
+
+	    <!--==============DAY 2 =====================-->
+	    <div class="windows" id="DAY2_WINDOW">
+		<h3>Day 2:<br> Bagatelle Kalahari Game Ranch, Kalahari Namibia </h3>
+		<div class="divider"></div>
+		<div class="columns">
+		    <div class="column col-6">
+			<img src="img/dune.jpg" class="img-responsive dayImages" alt="Windhoek">
+		    </div>
+		    <div class="column col-6">
+			<p>
+			    The Kalahari is an exceptionally beautiful living desert a large semi-arid sandy savannah draped over a gently rolling inland sea of sand covering most of Botswana and large parts of Namibia and South Africa.
+			</p>
+		    </div>
+		</div>
+
+		<div class="columns">
+		    <div class="column col-6">
+			<br><br>
+			<h3>Activities: <br>
+			    Bagatelle Kalahari Game Ranch Combination Drive:</h3>
+
+			<p>
+			    The Combination Drive offered by the Bagatelle Kalahari Game Ranch is a game drive, cheetah feeding, and sundowner on the dunes. The game drive is in a reserve where guests can see a variety
+			    of game such as giraffe, kudu, zebra, oryx, blue wildebeest, eland and much more. The reserve has some of the highest dunes in the region with views over the pan, characteristic to the Kalahari. The Kalahari has more than 150 species of birds. The well-known suricate (meerkat) is also to be seen, although they are very scarce. Cheetah feeding allows guests the opportunity to come up close to the cheetah and offers a great opportunity for taking photos. The guides will provide guests with interesting facts about this incredible cat and the history of the cheetahs in the game ranches care. After this, a sundowner on the dune will await guests, with refreshments and a Namibian snack, while guests can enjoy a breathtaking sunset in the Kalahari.
+			</p>
+		    </div>
+		    <div class="column col-6">
+			<div id="DAY2_MAP"></div><br>
+			<h3 class="my-2">Overnight: Bagatelle Kalahari Game Ranch </h3>
+			<p>The lodge lies on the edge of the Southern Kalahari in the mixed tree and shrub Savannah. The ranch is characterized by huge red sands dunes running parallel, and in a northern-westerly to south-easterly direction. This ‘Spirit of Africa’ atmosphere, coupled with service, delivered with graciousness and charm, in an unashamedly luxurious setting, will be the hallmarks of this establishment, providing excellent value and unforgettable memories for the discerning traveller.</p>
+			<table class="table">
+			    <thead>
+				<tr>
+				    <th>Information</th>
+				    <th>Value</th>
+				</tr>
+			    </thead>
+			    <tbody>
+				<tr>
+				    <td>Distance</td>
+				    <td>260.01km</td>
+				</tr>
+				<tr>
+				    <td>Travel Time</td>
+				    <td>2:46 hours</td>
+				</tr>
+				<tr>
+				    <td>GPS Co-ordinates</td>
+				    <td>S 22° 34' 36.740" E 17° 06' 31.937"</td>
+				</tr>
+			    </tbody>
+			</table>
+
+			<h4 class="text-right">
+			    <i class="fa fa-bed" title="Bed"></i>
+			    <i class="fa fa-cutlery" title="Food"></i>
+			    <kbd>Half Board Plus - Dinner, Bed, Breakfast and Activities</kbd>
+			</h4>
+		    </div>
+		</div>
+	    </div> <!--============== END DAY 2 =====================-->
+
+	    <!--==============DAY 3 =====================-->
+	    <div class="windows" id="DAY3_WINDOW">
+		<h3>Day 3:<br> Dead Valley Lodge, Sesriem</h3>
+		<div class="divider"></div>
+		<div class="columns">
+		    <div class="column col-6">
+			<img src="img/dune2.jpg" class="img-responsive dayImages" alt="Windhoek">
+		    </div>
+		    <div class="column col-6">
+			<p>
+			    As there is no accommodation at Sossusvlei, visitors to this desert wilderness are likely to end up staying at Sesriem, 65 kilometres away, where camps and lodges serve as a base from which to explore the dunes. Sesriem Canyon, a deep chasm carved through the rocks by water, is a striking natural feature of the area that is best explored on foot. Stony walls rise up sharply on both sides of the canyon, while birds roost in its crags and lizards dart along the ledges. The canyon’s name was coined when early settlers used it as a water source, using six lengths of leather (‘ses riem – six thongs) tied together to lower buckets into the water at the base of canyon.)
+			</p>
+		    </div>
+		</div>
+
+		<div class="columns">
+		    <div class="column col-6">
+			<br><br>
+			<h3>Activities: <br>
+			    Bagatelle Kalahari Game Ranch Bushmen Walk:</h3>
+
+			<p>
+			    BUSHMAN WALK TO THEIR VILLAGE - A relaxing walk with the Bushmen (San) to their deomonstrational village, sharing with you their ancient survival skills and secrets inherited from their forefathers. Keeping the past alive. On arrival at the traditional Bushman village, you will meet a family who will present you with the way they used to store water in ostrich eggs, plants for medicinal use, setting up traps, the making of ostrich and bead jewellery, etc. This is really an unforgettable experience.
+			</p>
+
+			<p>Our guide will do the necessary translation into English, as the Bushmen will speak their own language.</p>
+		    </div>
+		    <div class="column col-6">
+			<div id="DAY3_MAP"></div><br>
+			<h3 class="my-2">Overnight:  Dead Valley Lodge</h3>
+			<p>Dead Valley Lodge is situated next to the main entrance gate inside the Namib-Naukluft National Park, between the Sesriem campsite and Elim Dune on the way to the world famous Sossusvlei and the Dead Vlei. This oasis offers a panoramic view of the Namib Desert with towering red sand dunes, rugged mountain ranges, and arid desert savannahs. </p>
+			<p>Each of the 20 free-standing luxury tented chalets is climate controlled and equipped with double bed units, electric plugs, private patios, a kitchenette, and free-standing bathrooms stocked with toiletries. Guests can enjoy the top-class restaurant that serves delicious Namibian-style cuisine, relax in the picturesque bar with a cold drink after a day of activities, or cool off in the open-air swimming pool overlooking the Elim Dune. </p>
+			<p>The lodge’s eco-friendly design and architecture have truly been inspired by Sossusvlei and with its own entrance into the Namib-Naukluft National Park, making the Dead Valley Lodge one of the closest lodges to Sossusvlei pan. The lodge offers game drives in the morning and afternoon to Sossusvlei and Sesriem Canyon. </p>
+			<p>The official opening for guests was on 1 July 2019.</p>
+			<table class="table">
+			    <thead>
+				<tr>
+				    <th>Information</th>
+				    <th>Value</th>
+				</tr>
+			    </thead>
+			    <tbody>
+				<tr>
+				    <td>Distance</td>
+				    <td>318.20km</td>
+				</tr>
+				<tr>
+				    <td>Travel Time</td>
+				    <td>3:43  hours</td>
+				</tr>
+				<tr>
+				    <td>GPS Co-ordinates</td>
+				    <td>S 24° 28' 54.396" E 15° 47' 40.860"</td>
+				</tr>
+			    </tbody>
+			</table>
+
+			<h4 class="text-right">
+			    <i class="fa fa-bed" title="Bed"></i>
+			    <i class="fa fa-cutlery" title="Food"></i>
+			    <kbd>Full Board - Dinner, Bed, Breakfast and Lunch</kbd>
+			</h4>
+		    </div>
+		</div>
+	    </div> <!--============== END DAY 3 =====================-->
+
+	    <!--==============DAY 4 =====================-->
+	    <div class="windows" id="DAY4_WINDOW">
+		<h3>Day 2:<br>Dead Valley Lodge, Sesriem</h3>
+		<div class="divider"></div>
+		<div class="columns">
+		    <div class="column col-6">
+			<img src="img/sesriem.jpg" class="img-responsive dayImages" alt="Windhoek">
+		    </div>
+		</div>
+
+		<div class="columns">
+		    <div class="column col-6">
+			<br><br>
+			<h3>Activities: <br>Sossusvlei</h3>
+
+			<p>
+			    Sossusvlei is where you will find the iconic red sand dunes of the Namib. The clear blue skies contrast with the giant red sand dunes to make this one of the natural wonders of Africa and a photographer’s heaven. Aside from the attractions at Sossusvlei - Dune 45, Hiddenvlei, Big Daddy and Deadvlei - other attractions in the area include the Sesriem Canyon and Namib-Naukluft National Park, where the mountains of the Namib meet its plains.
+			</p>
+		    </div>
+		    <div class="column col-6">
+			<div id="DAY4_MAP"></div><br>
+
+			<h4 class="text-right">
+			    <i class="fa fa-bed" title="Bed"></i>
+			    <i class="fa fa-cutlery" title="Food"></i>
+			    <kbd>Full Board - Dinner, Bed, Breakfast and Lunch</kbd>
+			</h4>
+		    </div>
+		</div>
+	    </div> <!--============== END DAY 4 =====================-->
+
+	    <!--==============DAY 5 =====================-->
+	    <div class="windows" id="DAY5_WINDOW">
+		<h3>Day 5:<br> Strand Hotel Swakopmund, Swakopmund</h3>
+		<div class="divider"></div>
+		<div class="columns">
+		    <div class="column col-6">
+			<img src="img/swakop.jpg" class="img-responsive dayImages" alt="Swakopmund">
+		    </div>
+		    <div class="column col-6">
+			<p>
+			    Germany’s North Sea and Baltic coasts transplanted onto African soil. But the city is also thoroughly African and its multidimensional appeal means that most people end up staying longer than they planned.<br>
+			    Palm-lined streets, seaside promenades, fine accommodation, a pleasant summer climate and decent beaches. During the summer holidays and long weekends, thousands of Namibians flock to the coast, and this human migration happens for a number of reasons; Swakopmund has a real holiday feel to it and everyone wants to be there; during the December holidays, the cool Namibian coast offers relief from the intense heat of the interior; and more importantly as far as the tourist is concerned in these modern times, Swakopmund has changed, and has become the country’s leading adrenaline destination, with a wide range of activities to suit all ages.<br>
+			    The area of Namib Desert around Swakopmund is named the West Coast Recreational Area and recreation is the towns number one draw card. There are countless pursuits to help you spend your time, and money. For those interested in adventure activities Swakopmund offers sandboarding, quad biking, dune carting, parachuting, hot air ballooning, shark fishing, deep sea fishing and beach angling to name but a few. For the more sedentary there are restaurants, cafes, art galleries, the Swakopmund Museum, a snake park and aquarium.
+			</p>
+		    </div>
+		</div>
+
+		<div class="columns">
+		    <div class="column col-6">
+			<p>
+			    Buildings and monuments of note in Swakopmund include the Hohenzollern Building, the Marine memorial, the War memorial in memory of those killed in World War 2, Princess Rupprecht House originally a military hospital now a private guest house, the Kaserne buildings that originally served as a barracks and is of a similar design to the Alte Feste in Windhoek and Fort Namutoni in Etosha. The old Swakopmund Prison is still fully operational and provides budget accommodation for the criminal fraternity of the Namibian coast.
+			</p>
+
+			<p>
+			    The Swakopmund Railway station was completed in 1901 and now houses the Swakopmund Hotel, while the bells of the Deutsche Evangelical Church were imported from Germany. Standing close to the State House (Kaiserliches Bezirksgericht) is the Swakopmund Lighthouse at just over 20 meters it has been functional since 1902.
+			</p>
+
+			<p>
+			    The main beach area is called the Mole, and is the result of a largely unsuccessful attempt to construct the artificial harbour (as South Africa owned the only natural harbour in the area at Walvis Bay). The town’s most iconic symbol is the Swakopmund jetty, initially used as mooring for ships it later became a popular are for anglers and walkers, it has fallen into disrepair on numerous occasions and has been subject to several attempts to rescue it from complete dereliction. Recently large scale work has been completed on the jetty which now proudly boasts a small restaurant and bar area.
+			</p>
+
+			<p>
+			    True to its German traditions early mornings and evenings in Swakopmund can be cold throughout the year, as the cold Atlantic Ocean meeting the Namib Desert creates a fog bank. This coolness is often a relief from the heat of the rest of Namibia, but does mean that Swakopmund is not the tropical sunbathing mecca that most people imagine.
+			</p>
+		    </div>
+		    <div class="column col-6">
+			<div id="DAY5_MAP"></div><br>
+			<h3 class="my-2">Overnight: Strand Hotel Swakopmund </h3>
+			<p>With its extensive, unique and creatively entertaining Restaurants, Bars, Deli, Lobby-Lounge, Sea Facing Terraces, Beach Kiosk and state of the art Conference & Banqueting Center, all set on the Mole, a historic and iconic site surrounded by Ocean on three sides, the Strand Hotel Swakopmund is a social epicenter and destination in itself for all visitors to and residents of Swakopmund. Its architectural inspiration finds its roots deep in Namibian German history and reflects this in a tasteful contemporary manner. The interiors are residential in nature, and the brief to all designers involved was to create a non-hotel, hotel. One as charming and welcoming as the town it is located in. Simply very warm and comfortable, and as they say in German: “gemütlich” providing a genuine “sense-of-place” atmosphere adding to any Namibian visit. Arriving at the Strand is a dramatic experience as one passes through its 13m high and 9m wide Ocean View Atrium which travels right through the Hotel offering sea views at either end. Off this Atrium Lobby is Reception, consisting of three individual desks and an inviting open fireplace which rounds off the residential feel and warm welcome.</p>
+			<table class="table">
+			    <thead>
+				<tr>
+				    <th>Information</th>
+				    <th>Value</th>
+				</tr>
+			    </thead>
+			    <tbody>
+				<tr>
+				    <td>Distance</td>
+				    <td>347.58km</td>
+				</tr>
+				<tr>
+				    <td>Travel Time</td>
+				    <td>4:10 hours</td>
+				</tr>
+				<tr>
+				    <td>GPS Co-ordinates</td>
+				    <td>S 22° 40' 31.072" E 14° 31' 17.230"</td>
+				</tr>
+			    </tbody>
+			</table>
+
+			<h4 class="text-right">
+			    <i class="fa fa-bed" title="Bed"></i>
+			    <i class="fa fa-cutlery" title="Food"></i>
+			    <kbd>Bed and Breakfast</kbd>
+			</h4>
+		    </div>
+		</div>
+	    </div> <!--============== END DAY 5 =====================-->
+
+	    <!--==============DAY 6 =====================-->
+	    <div class="windows" id="DAY6_WINDOW">
+		<h3>Day 6:<br> Mowani Mountain Camp, Twyfelfontein</h3>
+		<div class="divider"></div>
+		<div class="columns">
+		    <div class="column col-6">
+			<img src="img/elephants.jpg" class="img-responsive dayImages" alt="Windhoek">
+		    </div>
+		    <div class="column col-6">
+			<p>
+			    Twyfelfontein is a site of ancient rock engravings in the Kunene Region of north-western Namibia.
+			</p>
+		    </div>
+		</div>
+
+		<div class="columns">
+		    <div class="column col-10">
+			<div id="DAY6_MAP"></div><br>
+			<h3 class="my-2">Overnight: Mowani Mountain Camp </h3>
+			<p>Mowani Mountain Camp offers luxury tented accommodation with magnificent desert views. Open air en-suite bathrooms and private decks give you great views of Damaraland and the reliability of nearby Twyfelfontein with its San engravings and paintings is contrasted by the elusive desert adapted elephants. The Twyfelfontein conservancy has been protecting the southern most roaming ground of the black rhino and elusive desert elephant. Sustainable eco-tourism and community upliftment is of the utmost importance at Mowani. Guides from the local tribes compliment day-time game drives to track mountain zebra, kudu, springbok, klipspringer and if you are fortunate enough... the leopard! The adventurer in me took over at Mowani. Days were filled with game drives, hot air balloon trips over the Aba-Huab Valley, champagne breakfasts and al fresco meals amidst the dusky landscape beneath Mopani trees.</p>
+			<table class="table">
+			    <thead>
+				<tr>
+				    <th>Information</th>
+				    <th>Value</th>
+				</tr>
+			    </thead>
+			    <tbody>
+				<tr>
+				    <td>Distance</td>
+				    <td>324.1km</td>
+				</tr>
+				<tr>
+				    <td>Travel Time</td>
+				    <td>4:18 hours</td>
+				</tr>
+				<tr>
+				    <td>GPS Co-ordinates</td>
+				    <td>S 20° 30' 16.733" E 14° 25' 24.322"</td>
+				</tr>
+			    </tbody>
+			</table>
+
+			<h4 class="text-right">
+			    <i class="fa fa-bed" title="Bed"></i>
+			    <i class="fa fa-cutlery" title="Food"></i>
+			    <kbd>Dinner, Bed and Breakfast</kbd>
+			</h4>
+		    </div>
+		</div>
+	    </div> <!--============== END DAY 6 =====================-->
+
+	    <!--==============DAY 7 =====================-->
+	    <div class="windows" id="DAY7_WINDOW">
+		<h3>Day 7:<br> Ongava Lodge, Ongava Private Game Reserve</h3>
+		<div class="divider"></div>
+		<div class="columns">
+		    <div class="column col-6">
+			<img src="img/giraffe-skin.jpg" class="img-responsive dayImages" alt="Windhoek">
+		    </div>
+		    <div class="column col-6">
+			<p>
+			    Sharing a common boundary with Etosha National Park, the prolific 30 000-hectare private Ongava Game Reserve is considered one of the finest private game reserves in the region, enjoying global recognition for exceptional conservation, ground breaking research and exciting safari experiences. The reserve is home to – among others – lion, eland, black-faced impala, Hartmann's mountain zebra and a variety of other antelope species. Additional, it is one of the few private reserves in Southern Africa where both black and white rhinos can be observed. The recorded bird life has reached over 340 species. Each Ongava property has its own unique style, layout and atmosphere; but all offer the same wonderful sense of luxurious seclusion. Built from local materials in traditional fashion, they blend tastefully into the surrounding landscape, allowing visitors to feel at one with nature. Spacious lounge areas, reflecting the colours and textures of the African bush, invite guests to relax, enjoy a drink from the bar, or simply gaze out into the distance and be surprised as Ongava’s spectacular wildlife emerges from the bush. Every guest suite is individually designed for quality and comfort, and our dedicated guides and catering staff are always available ensuring an unforgettable Ongava stay.
+			</p>
+		    </div>
+		</div>
+
+		<div class="columns">
+		    <div class="column col-10">
+			<div id="DAY7_MAP"></div><br>
+			<h3 class="my-2">Overnight: Ongava Lodge </h3>
+			<p>The well-established Ongava Lodge is situated in the privately owned Ongava Game Reserve along the southern boundary of Etosha National Park. Placed at the top of a hill in the foothills of the Ondundozonanandana range, the impressive vantage point from the main lounge and dining area is beautiful and overlooks a much-frequented waterhole and the plains beyond. Ongava Lodge offers luxury accommodation in 14 rock-and-thatch en-suite chalets and an inviting pool at the main area to cool off in the heat of the day. Meals are either served in the main dining area under thatch or on the dining deck under the stars. Nature and wildlife-viewing drives, visiting hides overlooking waterholes, walks and rhino approaching with experienced guides can all be enjoyed on the private Ongava Game Reserve. Game drives and day trips into nearby Etosha National Park are also offered. Ongava has resident white and black rhino, giving overnight Ongava guests the opportunity to see both species.</p>
+			<table class="table">
+			    <thead>
+				<tr>
+				    <th>Information</th>
+				    <th>Value</th>
+				</tr>
+			    </thead>
+			    <tbody>
+				<tr>
+				    <td>Distance</td>
+				    <td>329.6k1km</td>
+				</tr>
+				<tr>
+				    <td>Travel Time</td>
+				    <td>3:42 hours</td>
+				</tr>
+				<tr>
+				    <td>GPS Co-ordinates</td>
+				    <td>S 19° 20' 59.900" E 15° 52' 17.000"</td>
+				</tr>
+			    </tbody>
+			</table>
+
+			<h4 class="text-right">
+			    <i class="fa fa-bed" title="Bed"></i>
+			    <i class="fa fa-cutlery" title="Food"></i>
+			    <kbd>Full Board Plus - Dinner, Bed, Breakfast, Lunch and Activities</kbd>
+			</h4>
+		    </div>
+		</div>
+	    </div> <!--============== END DAY 7 =====================-->
+
+	    <!--==============DAY 8 =====================-->
+	    <div class="windows" id="DAY8_WINDOW">
+		<h3>Day 8:<br> Etosha National Park </h3>
+		<div class="divider"></div>
+		<div class="columns">
+		    <div class="column col-6">
+			<img src="img/etosha.jpg" class="img-responsive dayImages" alt="Windhoek">
+		    </div>
+		    <div class="column col-6">
+			<p>
+			    The Etosha National Park is Namibia's premiere game viewing experience, situated in the northwest of Namibia and is an area well known for its wildlife. Vegetation ranges from dense bush to open plains attracting a diversity of wildlife. In the heart of the Park is The Etosha Pan - a shallow depression that covers an area of 5000sq kilometres. Dry and shimmering for most of the year, the pans fill up with water after good rains to a depth which is seldom deeper than 1m. In the dry season wildlife is attracted to perennial springs and waterholes that makes for excellent game viewing. Within the park are three large public rest camps catering for the more budget orientated traveller. There are several smaller establishments on the outskirts of the park on private land offering a more intimate and comprehensive experience. All of these establishments offer excellent value for money.
+			</p>
+		    </div>
+		</div>
+
+		<div class="columns">
+		    <div class="column col-10">
+			<div id="DAY8_MAP"></div><br>
+			<h4 class="text-right">
+			    <i class="fa fa-bed" title="Bed"></i>
+			    <i class="fa fa-cutlery" title="Food"></i>
+			    <kbd>Full Board Plus - Dinner, Bed, Breakfast, Lunch and Activities</kbd>
+			</h4>
+		    </div>
+		</div>
+	    </div> <!--============== END DAY 8 =====================-->
+
+	    <!--==============DAY 9 =====================-->
+	    <div class="windows" id="DAY9_WINDOW">
+		<h3>Day 9:<br> Okonjima Luxury Bush Camp, Okonjima Nature Reserve</h3>
+		<div class="divider"></div>
+		<div class="columns">
+		    <div class="column col-6">
+			<img src="img/leopard.jpg" class="img-responsive dayImages" alt="Windhoek">
+		    </div>
+		    <div class="column col-6">
+			<p>
+			    Halfway between Windhoek and Etosha lies the well-known Okonjima Nature Reserve. The 22 000 ha Nature Reserve is surrounded by 96 km of fence and was finally completed in 2010. Okonjima is home to AFRICAT, a Carnivore Conservation, which gives the captive carnivores a second chance to be released back into the wild and to take the time it needs, to become a completely independent hunter - in a protected area right in the middle of commercial farmland! Also in the Reserve is a 2000 ha 'safe' zone around Plains Camp, Bush Camp, Bush Suite, the Omboroko Campsite as well as the PAWS Environmental Education Centre.
+			</p>
+		    </div>
+		</div>
+
+		<div class="columns">
+		    <div class="column col-10">
+			<div id="DAY9_MAP"></div><br>
+			<h3 class="my-2">Overnight: Okonjima Luxury Bush Camp</h3>
+			<p>Okonjima's Luxury Bush Camp is situated on the edge of a wilderness area. Each exclusive chalet enjoys complete privacy and is a combination of earthy, ochre walls and khaki-green canvas, under a thatched roof. Activities offered on Okonjima range from Tracking Leopards from a game-view vehicle; Tracking rehabilitated Cheetah on foot; Tracking rehabilitated Spotted Hyaena on foot; Tracking rehabilitated Wild Dog on foot , Guided walking / Bushman trail as well as a visit to AfriCat’s Carnivore Care and Information Centre. Not only is Okonjima a luxury lodge, but it is also home to The AfriCat Foundation, a non-profit organisation, committed to long-term conservation of Namibia's large carnivores, especially cheetahs leopards and lions. A visit to Okonjima will give you an opportunity to witness some of AfriCat's work.</p>
+			<table class="table">
+			    <thead>
+				<tr>
+				    <th>Information</th>
+				    <th>Value</th>
+				</tr>
+			    </thead>
+			    <tbody>
+				<tr>
+				    <td>Distance</td>
+				    <td>216.6km</td>
+				</tr>
+				<tr>
+				    <td>Travel Time</td>
+				    <td>2:13 hours</td>
+				</tr>
+				<tr>
+				    <td>GPS Co-ordinates</td>
+				    <td>S 20° 50' 58.950" E 16° 39' 58.226"</td>
+				</tr>
+			    </tbody>
+			</table>
+
+			<h4 class="text-right">
+			    <i class="fa fa-bed" title="Bed"></i>
+			    <i class="fa fa-cutlery" title="Food"></i>
+			    <kbd>Half Board - Dinner, Bed and Breakfast</kbd>
+			</h4>
+		    </div>
+		</div>
+	    </div> <!--============== END DAY 9 =====================-->
+
+	</section>
+
+
+	<footer class="text-center">
+	    Website powered by <a href="https://bizkit.kwatafana.org/">BizKit</a>
+	    Hand coded by <a href="https://x.com/cy6erlion">cy6erlion</a>
+	</footer>
+
+	<script>
+	 const tabSelectors = document.getElementsByClassName("tab-item");
+	 const windows = document.getElementsByClassName("windows");
+
+	 for(var i = 0; i < tabSelectors.length; i++){
+	     let current = i;
+	     tabSelectors[i].addEventListener("click", () => {
+		 hide_windows();
+		 clear_tabs();
+		 if(!tabSelectors[current].classList.contains("active")){
+		     if (current === 0){
+			 windows[0].style.display = "block";
+		     } else if(current === 1){
+			 windows[1].style.display = "block";
+		     }else if(current === 2){
+			 windows[2].style.display = "block";
+		     }else if(current === 3){
+			 windows[3].style.display = "block";
+		     }else if(current === 4){
+			 windows[4].style.display = "block";
+		     }else if(current === 5){
+			 windows[5].style.display = "block";
+		     }else if(current === 6){
+			 windows[6].style.display = "block";
+		     }else if(current === 7){
+			 windows[7].style.display = "block";
+		     } else if(current === 8){
+			 windows[8].style.display = "block";
+		     }
+		 }
+
+		 tabSelectors[current].classList.add("active");
+	     })
+	 }
+
+	 function hide_windows(){
+	     const windows = document.getElementsByClassName("windows");
+
+	     for(var i = 0; i < windows.length; i++){
+		 windows[i].style.display = "none";
+	     }
+	 }
+
+	 function clear_tabs(){
+	     const tabSelectors = document.getElementsByClassName("tab-item");
+
+	     for(var i = 0; i < tabSelectors.length; i++){
+		 tabSelectors[i].classList.remove("active");
+	     }
+	 }
+
+	 /// Setup MAPS
+	 var day1Map = L.map('DAY1_MAP').setView([51.505, -0.09], 13);
+	 var day2Map = L.map('DAY2_MAP').setView([51.505, -0.09], 13);
+	 var day3Map = L.map('DAY3_MAP').setView([51.505, -0.09], 13);
+	 var day4Map = L.map('DAY4_MAP').setView([51.505, -0.09], 13);
+	 var day5Map = L.map('DAY5_MAP').setView([51.505, -0.09], 13);
+	 var day6Map = L.map('DAY6_MAP').setView([51.505, -0.09], 13);
+	 var day7Map = L.map('DAY7_MAP').setView([51.505, -0.09], 13);
+	 var day8Map = L.map('DAY8_MAP').setView([51.505, -0.09], 13);
+	 var day9Map = L.map('DAY9_MAP').setView([51.505, -0.09], 13);
+
+	 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	     maxZoom: 19,
+	     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	 }).addTo(day1Map);
+
+	 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	     maxZoom: 19,
+	     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	 }).addTo(day2Map);
+
+	 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	     maxZoom: 19,
+	     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	 }).addTo(day3Map);
+
+	 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	     maxZoom: 19,
+	     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	 }).addTo(day4Map);
+
+	 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	     maxZoom: 19,
+	     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	 }).addTo(day5Map);
+
+	 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	     maxZoom: 19,
+	     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	 }).addTo(day6Map);
+
+	 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	     maxZoom: 19,
+	     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	 }).addTo(day7Map);
+
+	 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	     maxZoom: 19,
+	     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	 }).addTo(day8Map);
+
+	 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	     maxZoom: 19,
+	     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	 }).addTo(day9Map);
+	</script>
+    </body>
+</html>
