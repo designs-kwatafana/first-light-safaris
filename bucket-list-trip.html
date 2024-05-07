@@ -553,7 +553,7 @@
 				</tr>
 				<tr>
 				    <td>GPS Co-ordinates</td>
-				    <td>S 22° 34' 36.740" E 17° 06' 31.937"</td>
+				    <td>S 24° 18' 0.742" E 18° 01' 58.569"</td>
 				</tr>
 			    </tbody>
 			</table>
@@ -986,15 +986,98 @@
 	 }
 
 	 /// Setup MAPS
-	 var day1Map = L.map('DAY1_MAP').setView([51.505, -0.09], 13);
-	 var day2Map = L.map('DAY2_MAP').setView([51.505, -0.09], 13);
-	 var day3Map = L.map('DAY3_MAP').setView([51.505, -0.09], 13);
-	 var day4Map = L.map('DAY4_MAP').setView([51.505, -0.09], 13);
-	 var day5Map = L.map('DAY5_MAP').setView([51.505, -0.09], 13);
-	 var day6Map = L.map('DAY6_MAP').setView([51.505, -0.09], 13);
-	 var day7Map = L.map('DAY7_MAP').setView([51.505, -0.09], 13);
-	 var day8Map = L.map('DAY8_MAP').setView([51.505, -0.09], 13);
-	 var day9Map = L.map('DAY9_MAP').setView([51.505, -0.09], 13);
+	 var day1Map = L.map('DAY1_MAP').setView([-22.57675329982503, 17.108892852400658], 13);
+	 var day2Map = L.map('DAY2_MAP').setView([-24.300010512543135, 18.032989438970876], 13);
+	 var day3Map = L.map('DAY3_MAP').setView([-24.48157162897752, 15.794694023637806], 13);
+	 var day4Map = L.map('DAY4_MAP').setView([-24.48157162897752, 15.794694023637806], 13);
+	 var day5Map = L.map('DAY5_MAP').setView([-22.67506019016045, 14.521420608228942], 13);
+	 var day6Map = L.map('DAY6_MAP').setView([-20.50441695160396, 14.423433523493166], 13);
+	 var day7Map = L.map('DAY7_MAP').setView([-19.349719111994098, 15.871378165785744], 13);
+	 var day8Map = L.map('DAY8_MAP').setView([-19.349719111994098, 15.871378165785744], 13);
+	 var day9Map = L.map('DAY9_MAP').setView([-20.849447554661577, 16.666163141475913], 13);
+
+	 var day1Marker = L.marker([-22.57675329982503, 17.108892852400658]).addTo(day1Map);
+	 var day2Marker = L.marker([-24.300010512543135, 18.032989438970876]).addTo(day2Map);
+	 var day3Marker = L.marker([-24.48157162897752, 15.794694023637806]).addTo(day3Map);
+	 var day4Marker = L.marker([-24.48157162897752, 15.794694023637806]).addTo(day4Map);
+	 var day5Marker = L.marker([-22.67506019016045, 14.521420608228942]).addTo(day5Map);
+	 var day6Marker = L.marker([-20.50441695160396, 14.423433523493166]).addTo(day6Map);
+	 var day7Marker = L.marker([-19.349719111994098, 15.871378165785744]).addTo(day7Map);
+ 	 var day8Marker = L.marker([-19.349719111994098, 15.871378165785744]).addTo(day8Map);
+	 var day9Marker = L.marker([-20.849447554661577, 16.666163141475913]).addTo(day9Map);
+
+	 // Refresh window maps
+	 var window1 = windows[0];
+	 var observer1 = new MutationObserver(function(){
+	     if(window1.style.display != 'none'){
+		 day1Map.invalidateSize();
+	     }
+	 });
+	 observer1.observe(window1, {attributes: true});
+
+	 var window2 = windows[1];
+	 var observer2 = new MutationObserver(function(){
+	     if(window2.style.display != 'none'){
+		 day2Map.invalidateSize();
+	     }
+	 });
+	 observer2.observe(window2, {attributes: true});
+
+	 var window3 = windows[2];
+	 var observer3 = new MutationObserver(function(){
+	     if(window3.style.display != 'none'){
+		 day3Map.invalidateSize();
+	     }
+	 });
+	 observer3.observe(window3, {attributes: true});
+
+	 var window4 = windows[3];
+	 var observer4 = new MutationObserver(function(){
+	     if(window4.style.display != 'none'){
+		 day4Map.invalidateSize();
+	     }
+	 });
+	 observer4.observe(window4, {attributes: true});
+
+	 var window5 = windows[4];
+	 var observer5 = new MutationObserver(function(){
+	     if(window5.style.display != 'none'){
+		 day5Map.invalidateSize();
+	     }
+	 });
+	 observer5.observe(window5, {attributes: true});
+
+	 var window6 = windows[5];
+	 var observer6 = new MutationObserver(function(){
+	     if(window6.style.display != 'none'){
+		 day6Map.invalidateSize();
+	     }
+	 });
+	 observer6.observe(window6, {attributes: true});
+
+	 var window7 = windows[6];
+	 var observer7 = new MutationObserver(function(){
+	     if(window7.style.display != 'none'){
+		 day7Map.invalidateSize();
+	     }
+	 });
+	 observer7.observe(window7, {attributes: true});
+
+	 var window8 = windows[7];
+	 var observer8 = new MutationObserver(function(){
+	     if(window8.style.display != 'none'){
+		 day8Map.invalidateSize();
+	     }
+	 });
+	 observer8.observe(window8, {attributes: true});
+
+	 var window9 = windows[8];
+	 var observer9 = new MutationObserver(function(){
+	     if(window9.style.display != 'none'){
+		 day9Map.invalidateSize();
+	     }
+	 });
+	 observer9.observe(window9, {attributes: true});
 
 	 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	     maxZoom: 19,
