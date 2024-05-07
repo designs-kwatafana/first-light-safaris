@@ -175,23 +175,83 @@
 	     width: 600px;
 	     border-radius: 5px;
 	 }
+
+	 @media only screen and (max-width: 398px){
+	     #PRICE{
+		 font-size: 2em;
+	     }
+	 }
+
+	 @media only screen and (max-width: 272px){
+	     #PRICE{
+		 font-size: 1em;
+	     }
+	 }
+
+	 @media only screen and (max-width: 840px){		
+	     #DAY1_MAP,
+	     #DAY2_MAP,
+	     #DAY3_MAP,
+	     #DAY4_MAP,
+	     #DAY5_MAP,
+	     #DAY6_MAP,
+	     #DAY7_MAP,
+	     #DAY8_MAP,
+	     #DAY9_MAP{
+		 height: 20vh;
+		 width: 300px;
+		 border-radius: 5px;
+	     }
+
+	 }
+
+	 #SMNAV{
+	     display: none;
+	 }
+
+	 @media only screen and (max-width: 380px){
+	     #SMNAV{
+	    display: block;	    
+	    top: 0;
+	     }
+
+	    #LGNAV{
+		 display: none;
+	     }	    
+
+	     #MENU{
+		 float: right;
+	     }
+	 }
 	</style>
     </head>
     <body>
-	<header class="navbar">
+	<header class="navbar" id="LGNAV">
 	    <section class="navbar-section">
 		<img src="img/logo.jpg" id="LOGO">
 		<a href="./index.html" class="btn btn-link">Home</a>
 		<a href="#DESTINATIONS" class="btn btn-link">Destinations</a>
 		<a href="#CONTACT" class="btn btn-link">Contact</a>
 	    </section>
-	    <section class="navbar-section px-2">
-		<button id="BANNER_BTN" class="btn btn-primary btn-lg mx-2">☀️ Explore Namibia</button>
+	</header>
+
+	<header class="navbar" id="SMNAV">
+	    <section class="navbar-section">
+		<div class="dropdown" id="MENU">
+		    <a href="#" class="btn btn-link dropdown-toggle" tabindex="0">
+			<i class="icon icon-menu"></i>
+		    </a>
+		    <!-- menu component -->
+		    <ul class="menu">
+			<li><a href="./index.html" class="btn btn-link">Home</a></li>
+		    </ul>
+		    </div>
+		    <img src="img/logo.jpg" id="LOGO">
 	    </section>
 	</header>
 
 	<section class="columns">
-	    <div class="col-6">
+	    <div class="col-6 col-md-12">
 		<h2>Bucket List Trip</h2>
 		<p>
 		    A trip across Namibia. Visiting all of the
@@ -332,8 +392,8 @@
 		    </div>
 		</div>
 	    </div>
-
-	    <div class="col-6">
+	    
+	    <div class="col-6 col-md-12">
 		<!--============== Image Slider ====================-->
 		<div class="carousel">
 		    <!-- carousel locator -->
@@ -417,10 +477,10 @@
 		<h3>Day 1:<br> Am Weinberg Estate’s Boutique Hotel, Windhoek </h3>
 		<div class="divider"></div>
 		<div class="columns">
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<img src="img/windhoek.jpg" class="img-responsive dayImages" alt="Windhoek">
 		    </div>
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<p>
 			    Windhoek, the capital of Namibia, is located
 			    in a basin between the Khomas Highland, Auas
@@ -443,7 +503,7 @@
 		</div>
 
 		<div class="columns">
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<p>
 			    The city centre is characterized by a proliferation of German style buildings, a lasting reminder of Namibia's early colonial history. Early buildings such as the1890s Alte Feste (Old Fort), the sandstone Lutheran Christi’s Church, the Tintenpalast (seat of Namibia’s government), and the Parliament Gardens are of particular interest. Just west, past leafy Zoo Park, the Post Street Mall shopping walkway has a meteorite display. North is the Owela Museum of natural history and ethnography. The nearby National Art Gallery of Namibia showcases works by local artists. The Trans Namib Museum, in Windhoek Railway Station, explores the country’s transport history. Northwest is the diverse Katutura suburb, with its markets and local taverns known as shebeens. Further west, Daan Viljoen Game Reserve is home to kudu antelope, zebras and rich birdlife.
 			</p>
@@ -468,7 +528,7 @@
 			    Most importantly Windhoek is home to Namibia's brewing industry, and for the less active Windhoek is a great place to while away the time while sipping (or gulping) a cold beer. There are also a number of private hospitals, a state run hospital, and doctor’s surgeries, banks, (with 24 hr ATM's) pharmacies, supermarkets, bakeries, and clothes shops. There is a large(ish) shopping mall at Maerua Mall, (complete with indoor swimming pool and gymnasium) and a smaller one on Post Street Mall, (Town Square) and at Wernhill Park, all worth a visit, especially if you've had enough of looking at curios. Windhoek's (and Namibia's) sense of progress since Independence, is emphasized by the presence of new offices, combined with expanding and bustling building and commerce industries.
 			</p>
 		    </div>
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<div id="DAY1_MAP"></div><br>
 			<h3 class="my-2">Overnight: Am Weinberg Estate’s <br>Boutique Hotel</h3>
 			<p>The Am Weinberg Estate’s Boutique Hotel provides all of the exclusivity and privacy you might expect from this prestigious Estate – making it the perfect retreat when travelling on vacation or business. The elegant 43-bedroom hotel wraps around a heritage building, creating an inviting courtyard. This design complements its historic character, while modern amenities ensure the utmost comfort. Aside from the location and spectacular views, hotel guests also have access to facilities including the Estate’s Soulstice Day Spa, two upmarket restaurants and the Conference Centre.</p>
@@ -510,10 +570,10 @@
 		<h3>Day 2:<br> Bagatelle Kalahari Game Ranch, Kalahari Namibia </h3>
 		<div class="divider"></div>
 		<div class="columns">
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<img src="img/dune.jpg" class="img-responsive dayImages" alt="Windhoek">
 		    </div>
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<p>
 			    The Kalahari is an exceptionally beautiful living desert a large semi-arid sandy savannah draped over a gently rolling inland sea of sand covering most of Botswana and large parts of Namibia and South Africa.
 			</p>
@@ -521,7 +581,7 @@
 		</div>
 
 		<div class="columns">
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<br><br>
 			<h3>Activities: <br>
 			    Bagatelle Kalahari Game Ranch Combination Drive:</h3>
@@ -531,7 +591,7 @@
 			    of game such as giraffe, kudu, zebra, oryx, blue wildebeest, eland and much more. The reserve has some of the highest dunes in the region with views over the pan, characteristic to the Kalahari. The Kalahari has more than 150 species of birds. The well-known suricate (meerkat) is also to be seen, although they are very scarce. Cheetah feeding allows guests the opportunity to come up close to the cheetah and offers a great opportunity for taking photos. The guides will provide guests with interesting facts about this incredible cat and the history of the cheetahs in the game ranches care. After this, a sundowner on the dune will await guests, with refreshments and a Namibian snack, while guests can enjoy a breathtaking sunset in the Kalahari.
 			</p>
 		    </div>
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<div id="DAY2_MAP"></div><br>
 			<h3 class="my-2">Overnight: Bagatelle Kalahari Game Ranch </h3>
 			<p>The lodge lies on the edge of the Southern Kalahari in the mixed tree and shrub Savannah. The ranch is characterized by huge red sands dunes running parallel, and in a northern-westerly to south-easterly direction. This ‘Spirit of Africa’ atmosphere, coupled with service, delivered with graciousness and charm, in an unashamedly luxurious setting, will be the hallmarks of this establishment, providing excellent value and unforgettable memories for the discerning traveller.</p>
@@ -572,10 +632,10 @@
 		<h3>Day 3:<br> Dead Valley Lodge, Sesriem</h3>
 		<div class="divider"></div>
 		<div class="columns">
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<img src="img/dune2.jpg" class="img-responsive dayImages" alt="Windhoek">
 		    </div>
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<p>
 			    As there is no accommodation at Sossusvlei, visitors to this desert wilderness are likely to end up staying at Sesriem, 65 kilometres away, where camps and lodges serve as a base from which to explore the dunes. Sesriem Canyon, a deep chasm carved through the rocks by water, is a striking natural feature of the area that is best explored on foot. Stony walls rise up sharply on both sides of the canyon, while birds roost in its crags and lizards dart along the ledges. The canyon’s name was coined when early settlers used it as a water source, using six lengths of leather (‘ses riem – six thongs) tied together to lower buckets into the water at the base of canyon.)
 			</p>
@@ -583,7 +643,7 @@
 		</div>
 
 		<div class="columns">
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<br><br>
 			<h3>Activities: <br>
 			    Bagatelle Kalahari Game Ranch Bushmen Walk:</h3>
@@ -594,7 +654,7 @@
 
 			<p>Our guide will do the necessary translation into English, as the Bushmen will speak their own language.</p>
 		    </div>
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<div id="DAY3_MAP"></div><br>
 			<h3 class="my-2">Overnight:  Dead Valley Lodge</h3>
 			<p>Dead Valley Lodge is situated next to the main entrance gate inside the Namib-Naukluft National Park, between the Sesriem campsite and Elim Dune on the way to the world famous Sossusvlei and the Dead Vlei. This oasis offers a panoramic view of the Namib Desert with towering red sand dunes, rugged mountain ranges, and arid desert savannahs. </p>
@@ -638,13 +698,13 @@
 		<h3>Day 2:<br>Dead Valley Lodge, Sesriem</h3>
 		<div class="divider"></div>
 		<div class="columns">
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<img src="img/sesriem.jpg" class="img-responsive dayImages" alt="Windhoek">
 		    </div>
 		</div>
 
 		<div class="columns">
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<br><br>
 			<h3>Activities: <br>Sossusvlei</h3>
 
@@ -652,7 +712,7 @@
 			    Sossusvlei is where you will find the iconic red sand dunes of the Namib. The clear blue skies contrast with the giant red sand dunes to make this one of the natural wonders of Africa and a photographer’s heaven. Aside from the attractions at Sossusvlei - Dune 45, Hiddenvlei, Big Daddy and Deadvlei - other attractions in the area include the Sesriem Canyon and Namib-Naukluft National Park, where the mountains of the Namib meet its plains.
 			</p>
 		    </div>
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<div id="DAY4_MAP"></div><br>
 
 			<h4 class="text-right">
@@ -669,10 +729,10 @@
 		<h3>Day 5:<br> Strand Hotel Swakopmund, Swakopmund</h3>
 		<div class="divider"></div>
 		<div class="columns">
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<img src="img/swakop.jpg" class="img-responsive dayImages" alt="Swakopmund">
 		    </div>
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<p>
 			    Germany’s North Sea and Baltic coasts transplanted onto African soil. But the city is also thoroughly African and its multidimensional appeal means that most people end up staying longer than they planned.<br>
 			    Palm-lined streets, seaside promenades, fine accommodation, a pleasant summer climate and decent beaches. During the summer holidays and long weekends, thousands of Namibians flock to the coast, and this human migration happens for a number of reasons; Swakopmund has a real holiday feel to it and everyone wants to be there; during the December holidays, the cool Namibian coast offers relief from the intense heat of the interior; and more importantly as far as the tourist is concerned in these modern times, Swakopmund has changed, and has become the country’s leading adrenaline destination, with a wide range of activities to suit all ages.<br>
@@ -682,7 +742,7 @@
 		</div>
 
 		<div class="columns">
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<p>
 			    Buildings and monuments of note in Swakopmund include the Hohenzollern Building, the Marine memorial, the War memorial in memory of those killed in World War 2, Princess Rupprecht House originally a military hospital now a private guest house, the Kaserne buildings that originally served as a barracks and is of a similar design to the Alte Feste in Windhoek and Fort Namutoni in Etosha. The old Swakopmund Prison is still fully operational and provides budget accommodation for the criminal fraternity of the Namibian coast.
 			</p>
@@ -699,7 +759,7 @@
 			    True to its German traditions early mornings and evenings in Swakopmund can be cold throughout the year, as the cold Atlantic Ocean meeting the Namib Desert creates a fog bank. This coolness is often a relief from the heat of the rest of Namibia, but does mean that Swakopmund is not the tropical sunbathing mecca that most people imagine.
 			</p>
 		    </div>
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<div id="DAY5_MAP"></div><br>
 			<h3 class="my-2">Overnight: Strand Hotel Swakopmund </h3>
 			<p>With its extensive, unique and creatively entertaining Restaurants, Bars, Deli, Lobby-Lounge, Sea Facing Terraces, Beach Kiosk and state of the art Conference & Banqueting Center, all set on the Mole, a historic and iconic site surrounded by Ocean on three sides, the Strand Hotel Swakopmund is a social epicenter and destination in itself for all visitors to and residents of Swakopmund. Its architectural inspiration finds its roots deep in Namibian German history and reflects this in a tasteful contemporary manner. The interiors are residential in nature, and the brief to all designers involved was to create a non-hotel, hotel. One as charming and welcoming as the town it is located in. Simply very warm and comfortable, and as they say in German: “gemütlich” providing a genuine “sense-of-place” atmosphere adding to any Namibian visit. Arriving at the Strand is a dramatic experience as one passes through its 13m high and 9m wide Ocean View Atrium which travels right through the Hotel offering sea views at either end. Off this Atrium Lobby is Reception, consisting of three individual desks and an inviting open fireplace which rounds off the residential feel and warm welcome.</p>
@@ -740,10 +800,10 @@
 		<h3>Day 6:<br> Mowani Mountain Camp, Twyfelfontein</h3>
 		<div class="divider"></div>
 		<div class="columns">
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<img src="img/elephants.jpg" class="img-responsive dayImages" alt="Windhoek">
 		    </div>
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<p>
 			    Twyfelfontein is a site of ancient rock engravings in the Kunene Region of north-western Namibia.
 			</p>
@@ -751,7 +811,7 @@
 		</div>
 
 		<div class="columns">
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<h3 class="my-2">Overnight: Mowani Mountain Camp </h3>
 			<p>Mowani Mountain Camp offers luxury tented accommodation with magnificent desert views. Open air en-suite bathrooms and private decks give you great views of Damaraland and the reliability of nearby Twyfelfontein with its San engravings and paintings is contrasted by the elusive desert adapted elephants. The Twyfelfontein conservancy has been protecting the southern most roaming ground of the black rhino and elusive desert elephant. Sustainable eco-tourism and community upliftment is of the utmost importance at Mowani. Guides from the local tribes compliment day-time game drives to track mountain zebra, kudu, springbok, klipspringer and if you are fortunate enough... the leopard! The adventurer in me took over at Mowani. Days were filled with game drives, hot air balloon trips over the Aba-Huab Valley, champagne breakfasts and al fresco meals amidst the dusky landscape beneath Mopani trees.</p>
 			<table class="table">
@@ -783,7 +843,7 @@
 			    <kbd>Dinner, Bed and Breakfast</kbd>
 			</h4>
 		    </div>
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<div id="DAY6_MAP"></div><br>
 		    </div>
 		</div>
@@ -794,10 +854,10 @@
 		<h3>Day 7:<br> Ongava Lodge, Ongava Private Game Reserve</h3>
 		<div class="divider"></div>
 		<div class="columns">
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<img src="img/giraffe-skin.jpg" class="img-responsive dayImages" alt="Windhoek">
 		    </div>
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<p>
 			    Sharing a common boundary with Etosha National Park, the prolific 30 000-hectare private Ongava Game Reserve is considered one of the finest private game reserves in the region, enjoying global recognition for exceptional conservation, ground breaking research and exciting safari experiences. The reserve is home to – among others – lion, eland, black-faced impala, Hartmann's mountain zebra and a variety of other antelope species. Additional, it is one of the few private reserves in Southern Africa where both black and white rhinos can be observed. The recorded bird life has reached over 340 species. Each Ongava property has its own unique style, layout and atmosphere; but all offer the same wonderful sense of luxurious seclusion. Built from local materials in traditional fashion, they blend tastefully into the surrounding landscape, allowing visitors to feel at one with nature. Spacious lounge areas, reflecting the colours and textures of the African bush, invite guests to relax, enjoy a drink from the bar, or simply gaze out into the distance and be surprised as Ongava’s spectacular wildlife emerges from the bush. Every guest suite is individually designed for quality and comfort, and our dedicated guides and catering staff are always available ensuring an unforgettable Ongava stay.
 			</p>
@@ -805,7 +865,7 @@
 		</div>
 
 		<div class="columns">
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<h3 class="my-2">Overnight: Ongava Lodge </h3>
 			<p>The well-established Ongava Lodge is situated in the privately owned Ongava Game Reserve along the southern boundary of Etosha National Park. Placed at the top of a hill in the foothills of the Ondundozonanandana range, the impressive vantage point from the main lounge and dining area is beautiful and overlooks a much-frequented waterhole and the plains beyond. Ongava Lodge offers luxury accommodation in 14 rock-and-thatch en-suite chalets and an inviting pool at the main area to cool off in the heat of the day. Meals are either served in the main dining area under thatch or on the dining deck under the stars. Nature and wildlife-viewing drives, visiting hides overlooking waterholes, walks and rhino approaching with experienced guides can all be enjoyed on the private Ongava Game Reserve. Game drives and day trips into nearby Etosha National Park are also offered. Ongava has resident white and black rhino, giving overnight Ongava guests the opportunity to see both species.</p>
 			<table class="table">
@@ -837,7 +897,7 @@
 			    <kbd>Full Board Plus - Dinner, Bed, Breakfast, Lunch and Activities</kbd>
 			</h4>
 		    </div>
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<div id="DAY7_MAP"></div><br>
 		    </div>
 		</div>
@@ -848,10 +908,10 @@
 		<h3>Day 8:<br> Etosha National Park </h3>
 		<div class="divider"></div>
 		<div class="columns">
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<img src="img/etosha.jpg" class="img-responsive dayImages" alt="Windhoek">
 		    </div>
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<p>
 			    The Etosha National Park is Namibia's premiere game viewing experience, situated in the northwest of Namibia and is an area well known for its wildlife. Vegetation ranges from dense bush to open plains attracting a diversity of wildlife. In the heart of the Park is The Etosha Pan - a shallow depression that covers an area of 5000sq kilometres. Dry and shimmering for most of the year, the pans fill up with water after good rains to a depth which is seldom deeper than 1m. In the dry season wildlife is attracted to perennial springs and waterholes that makes for excellent game viewing. Within the park are three large public rest camps catering for the more budget orientated traveller. There are several smaller establishments on the outskirts of the park on private land offering a more intimate and comprehensive experience. All of these establishments offer excellent value for money.
 			</p>
@@ -859,9 +919,9 @@
 		</div>
 
 		<div class="columns">
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 		    </div>
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<div id="DAY8_MAP"></div><br>
 			<h4 class="text-right">
 			    <i class="fa fa-bed" title="Bed"></i>
@@ -877,10 +937,10 @@
 		<h3>Day 9:<br> Okonjima Luxury Bush Camp, Okonjima Nature Reserve</h3>
 		<div class="divider"></div>
 		<div class="columns">
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<img src="img/leopard.jpg" class="img-responsive dayImages" alt="Windhoek">
 		    </div>
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<p>
 			    Halfway between Windhoek and Etosha lies the well-known Okonjima Nature Reserve. The 22 000 ha Nature Reserve is surrounded by 96 km of fence and was finally completed in 2010. Okonjima is home to AFRICAT, a Carnivore Conservation, which gives the captive carnivores a second chance to be released back into the wild and to take the time it needs, to become a completely independent hunter - in a protected area right in the middle of commercial farmland! Also in the Reserve is a 2000 ha 'safe' zone around Plains Camp, Bush Camp, Bush Suite, the Omboroko Campsite as well as the PAWS Environmental Education Centre.
 			</p>
@@ -888,7 +948,7 @@
 		</div>
 
 		<div class="columns">
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<h3 class="my-2">Overnight: Okonjima Luxury Bush Camp</h3>
 			<p>Okonjima's Luxury Bush Camp is situated on the edge of a wilderness area. Each exclusive chalet enjoys complete privacy and is a combination of earthy, ochre walls and khaki-green canvas, under a thatched roof. Activities offered on Okonjima range from Tracking Leopards from a game-view vehicle; Tracking rehabilitated Cheetah on foot; Tracking rehabilitated Spotted Hyaena on foot; Tracking rehabilitated Wild Dog on foot , Guided walking / Bushman trail as well as a visit to AfriCat’s Carnivore Care and Information Centre. Not only is Okonjima a luxury lodge, but it is also home to The AfriCat Foundation, a non-profit organisation, committed to long-term conservation of Namibia's large carnivores, especially cheetahs leopards and lions. A visit to Okonjima will give you an opportunity to witness some of AfriCat's work.</p>
 			<table class="table">
@@ -920,7 +980,7 @@
 			    <kbd>Half Board - Dinner, Bed and Breakfast</kbd>
 			</h4>
 		    </div>
-		    <div class="column col-6">
+		    <div class="column col-6 col-md-12">
 			<div id="DAY9_MAP"></div><br>
 		    </div>
 		</div>

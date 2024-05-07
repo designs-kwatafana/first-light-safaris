@@ -44,7 +44,7 @@
 	 #About{
 	     border-top: 2px solid #ffa109;
 	     border-bottom: 2px solid #ffa109;
-	     height: 100vh;
+	     height: 75vh;
 	     background-size: 100%;
 	     background-repeat: no-repeat;
 	     background-image: url("img/bg2.jpg");
@@ -101,11 +101,11 @@
 	 }
 
 	 #DESTINATIONS .columns{
-	     margin: 2em;
+	     margin: 0em 2em;
 	 }
 
-	 #DESTINATIONS .card{
-	     margin: 0 .5em;
+	 #DESTINATIONS  .card{
+	     margin: 1em;
 	 }
 
 	 #map1, #map2, #map3 {
@@ -182,18 +182,97 @@
 	 .card-title{
 	     font-size: 1.8em;
 	 }
+
+	 @media only screen and (max-width: 1316px){
+	     #About{
+		 height: 50vh;
+		 padding-top: 0;
+		 padding-bottom: 0;
+	     }
+	 }
+
+	 @media only screen and (max-width: 1316px){
+	     #About{
+		 height: 35vh
+	     }
+
+	     #About h1{
+		 font-size: 2em;
+	     }
+	 }
+
+	 @media only screen and (max-width: 674px){
+	     #About{
+		 height: 25vh
+	     }
+	 }
+
+	 @media only screen and (max-width: 674px){
+	     #About{
+		 height: 15vh;
+		 padding: 1em;
+	     }
+
+	     #About h1{
+		 font-size: 1em;
+	     }
+	 }
+
+	 @media only screen and (max-width: 372px){
+	     #About{
+		 height: 10vh
+	     }
+	 }
+
+	 @media only screen and (max-width: 504px){
+	     #DESTINATIONS{
+		 padding: .5em;
+	     }
+	 }
+
+	 #SMNAV{
+	     display: none;
+	 }
+
+	 @media only screen and (max-width: 380px){
+	     #SMNAV{
+		 display: block;
+		 top: 0;
+	     }
+
+	     #LGNAV{
+		 display: none;
+	     }
+
+	     #MENU{
+		 float: right;
+	     }
+	 }
 	</style>
     </head>
     <body>
-	<header class="navbar">
+	<header class="navbar" id="LGNAV">
 	    <section class="navbar-section">
 		<img src="img/logo.jpg" id="LOGO">
 		<a href="./index.html" class="btn btn-link">Home</a>
 		<a href="#DESTINATIONS" class="btn btn-link">Destinations</a>
 		<a href="#CONTACT" class="btn btn-link">Contact</a>
 	    </section>
-	    <section class="navbar-section px-2">
-		<button id="BANNER_BTN" class="btn btn-primary btn-lg mx-2">☀️ Explore Namibia</button>
+	</header>
+	<header class="navbar" id="SMNAV">
+	    <section class="navbar-section">
+		<div class="dropdown" id="MENU">
+		    <a href="#" class="btn btn-link dropdown-toggle" tabindex="0">
+			<i class="icon icon-menu"></i>
+		    </a>
+		    <!-- menu component -->
+		    <ul class="menu">
+			<li><a href="./index.html" class="btn btn-link">Home</a></li>
+			<li><a href="#DESTINATIONS" class="btn btn-link">Destinations</a></li>
+			<li><a href="#CONTACT" class="btn btn-link">Contact</a></li>
+		    </ul>
+		</div>
+		<img src="img/logo.jpg" id="LOGO">
 	    </section>
 	</header>
 	<section id="About">
@@ -202,9 +281,8 @@
 	<section id="DESTINATIONS">
 	    <h2>Destinations...</h2>
 
-
 	    <div class="columns">
-		<div class="card col-5">
+		<div class="card col-5 col-md-12">
 		    <div class="card-image">
 			<img src="img/etosha.jpg" class="img-responsive">
 		    </div>
@@ -227,7 +305,7 @@
 			<a href="./bucket-list-trip.html" class="btn btn-primary btn-lg destBtns">View</a>
 		    </div>
 		</div>
-		<div class="card col-5">
+		<div class="card col-5 col-md-12">
 		    <div class="card-image">
 			<img src="img/himba.jpg" class="img-responsive">
 		    </div>
@@ -250,7 +328,7 @@
 	    </div>
 
 	    <div class="columns">
-		<div class="card col-5">
+		<div class="card col-5 col-md-12">
 		    <div class="card-image">
 			<img src="img/dune.jpg" class="img-responsive">
 		    </div>
@@ -271,7 +349,7 @@
 		    </div>
 		</div>
 
- 		<div class="card col-5">
+ 		<div class="card col-5 col-md-12">
 		    <div class="card-image">
 			<img src="img/antelope.jpg" class="img-responsive">
 		    </div>
@@ -289,7 +367,7 @@
 		</div>
 	    </div>
 	    <div class="columns">
-		<div class="card col-5">
+		<div class="card col-5 col-md-12">
 		    <div class="card-image">
 			<img src="img/boat.png" class="img-responsive">
 		    </div>
@@ -309,7 +387,7 @@
 			<button class="btn btn-primary btn-lg destBtns">View</button>
 		    </div>
 		</div>
-		<div class="card col-5">
+		<div class="card col-5 col-md-12">
 		    <div class="card-image">
 			<img src="img/dune2.jpg" class="img-responsive">
 		    </div>
